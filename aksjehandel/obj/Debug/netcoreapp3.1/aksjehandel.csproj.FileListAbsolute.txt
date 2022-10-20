@@ -120,3 +120,4 @@ F:\Web Applikasjoner\aksjehandel\aksjehandel\obj\Debug\netcoreapp3.1\aksjehandel
 F:\Web Applikasjoner\aksjehandel\aksjehandel\obj\Debug\netcoreapp3.1\aksjehandel.dll
 F:\Web Applikasjoner\aksjehandel\aksjehandel\obj\Debug\netcoreapp3.1\aksjehandel.pdb
 F:\Web Applikasjoner\aksjehandel\aksjehandel\obj\Debug\netcoreapp3.1\aksjehandel.genruntimeconfig.cache
+F:\Web Applikasjoner\aksjehandel\aksjehandel\bin\Debug\netcoreapp3.1\RestSharp.dll
