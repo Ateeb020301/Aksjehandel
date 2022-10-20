@@ -1,0 +1,122 @@
+C:\Users\Moham\source\repos\aksjehandel\aksjehandel\obj\Debug\netcoreapp3.1\aksjehandel.csproj.AssemblyReference.cache
+C:\Users\Moham\source\repos\aksjehandel\aksjehandel\obj\Debug\netcoreapp3.1\aksjehandel.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Moham\source\repos\aksjehandel\aksjehandel\obj\Debug\netcoreapp3.1\aksjehandel.AssemblyInfoInputs.cache
+C:\Users\Moham\source\repos\aksjehandel\aksjehandel\obj\Debug\netcoreapp3.1\aksjehandel.AssemblyInfo.cs
+C:\Users\Moham\source\repos\aksjehandel\aksjehandel\obj\Debug\netcoreapp3.1\aksjehandel.csproj.CoreCompileInputs.cache
+C:\Users\Moham\source\repos\aksjehandel\aksjehandel\obj\Debug\netcoreapp3.1\aksjehandel.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Moham\source\repos\aksjehandel\aksjehandel\bin\Debug\netcoreapp3.1\appsettings.Development.json
+C:\Users\Moham\source\repos\aksjehandel\aksjehandel\bin\Debug\netcoreapp3.1\appsettings.json
+C:\Users\Moham\source\repos\aksjehandel\aksjehandel\bin\Debug\netcoreapp3.1\aksjehandel.exe
+C:\Users\Moham\source\repos\aksjehandel\aksjehandel\bin\Debug\netcoreapp3.1\aksjehandel.deps.json
+C:\Users\Moham\source\repos\aksjehandel\aksjehandel\bin\Debug\netcoreapp3.1\aksjehandel.runtimeconfig.json
+C:\Users\Moham\source\repos\aksjehandel\aksjehandel\bin\Debug\netcoreapp3.1\aksjehandel.runtimeconfig.dev.json
+C:\Users\Moham\source\repos\aksjehandel\aksjehandel\bin\Debug\netcoreapp3.1\aksjehandel.dll
+C:\Users\Moham\source\repos\aksjehandel\aksjehandel\bin\Debug\netcoreapp3.1\aksjehandel.pdb
+C:\Users\Moham\source\repos\aksjehandel\aksjehandel\bin\Debug\netcoreapp3.1\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\Moham\source\repos\aksjehandel\aksjehandel\bin\Debug\netcoreapp3.1\Microsoft.Bcl.HashCode.dll
+C:\Users\Moham\source\repos\aksjehandel\aksjehandel\bin\Debug\netcoreapp3.1\Microsoft.Data.Sqlite.dll
+C:\Users\Moham\source\repos\aksjehandel\aksjehandel\bin\Debug\netcoreapp3.1\Microsoft.DotNet.PlatformAbstractions.dll
+C:\Users\Moham\source\repos\aksjehandel\aksjehandel\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.dll
+C:\Users\Moham\source\repos\aksjehandel\aksjehandel\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\Moham\source\repos\aksjehandel\aksjehandel\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\Moham\source\repos\aksjehandel\aksjehandel\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Sqlite.dll
+C:\Users\Moham\source\repos\aksjehandel\aksjehandel\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Abstractions.dll
+C:\Users\Moham\source\repos\aksjehandel\aksjehandel\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\Moham\source\repos\aksjehandel\aksjehandel\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.dll
+C:\Users\Moham\source\repos\aksjehandel\aksjehandel\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\Moham\source\repos\aksjehandel\aksjehandel\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Binder.dll
+C:\Users\Moham\source\repos\aksjehandel\aksjehandel\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\Moham\source\repos\aksjehandel\aksjehandel\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\Moham\source\repos\aksjehandel\aksjehandel\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyModel.dll
+C:\Users\Moham\source\repos\aksjehandel\aksjehandel\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.dll
+C:\Users\Moham\source\repos\aksjehandel\aksjehandel\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\Moham\source\repos\aksjehandel\aksjehandel\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Options.dll
+C:\Users\Moham\source\repos\aksjehandel\aksjehandel\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
+C:\Users\Moham\source\repos\aksjehandel\aksjehandel\bin\Debug\netcoreapp3.1\SQLitePCLRaw.batteries_v2.dll
+C:\Users\Moham\source\repos\aksjehandel\aksjehandel\bin\Debug\netcoreapp3.1\SQLitePCLRaw.nativelibrary.dll
+C:\Users\Moham\source\repos\aksjehandel\aksjehandel\bin\Debug\netcoreapp3.1\SQLitePCLRaw.core.dll
+C:\Users\Moham\source\repos\aksjehandel\aksjehandel\bin\Debug\netcoreapp3.1\SQLitePCLRaw.provider.dynamic_cdecl.dll
+C:\Users\Moham\source\repos\aksjehandel\aksjehandel\bin\Debug\netcoreapp3.1\System.Collections.Immutable.dll
+C:\Users\Moham\source\repos\aksjehandel\aksjehandel\bin\Debug\netcoreapp3.1\System.Diagnostics.DiagnosticSource.dll
+C:\Users\Moham\source\repos\aksjehandel\aksjehandel\bin\Debug\netcoreapp3.1\System.Text.Json.dll
+C:\Users\Moham\source\repos\aksjehandel\aksjehandel\bin\Debug\netcoreapp3.1\runtimes\alpine-x64\native\libe_sqlite3.so
+C:\Users\Moham\source\repos\aksjehandel\aksjehandel\bin\Debug\netcoreapp3.1\runtimes\linux-arm\native\libe_sqlite3.so
+C:\Users\Moham\source\repos\aksjehandel\aksjehandel\bin\Debug\netcoreapp3.1\runtimes\linux-arm64\native\libe_sqlite3.so
+C:\Users\Moham\source\repos\aksjehandel\aksjehandel\bin\Debug\netcoreapp3.1\runtimes\linux-armel\native\libe_sqlite3.so
+C:\Users\Moham\source\repos\aksjehandel\aksjehandel\bin\Debug\netcoreapp3.1\runtimes\linux-musl-x64\native\libe_sqlite3.so
+C:\Users\Moham\source\repos\aksjehandel\aksjehandel\bin\Debug\netcoreapp3.1\runtimes\linux-x64\native\libe_sqlite3.so
+C:\Users\Moham\source\repos\aksjehandel\aksjehandel\bin\Debug\netcoreapp3.1\runtimes\linux-x86\native\libe_sqlite3.so
+C:\Users\Moham\source\repos\aksjehandel\aksjehandel\bin\Debug\netcoreapp3.1\runtimes\osx-x64\native\libe_sqlite3.dylib
+C:\Users\Moham\source\repos\aksjehandel\aksjehandel\bin\Debug\netcoreapp3.1\runtimes\win-arm\native\e_sqlite3.dll
+C:\Users\Moham\source\repos\aksjehandel\aksjehandel\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\e_sqlite3.dll
+C:\Users\Moham\source\repos\aksjehandel\aksjehandel\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\e_sqlite3.dll
+C:\Users\Moham\source\repos\aksjehandel\aksjehandel\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\e_sqlite3.dll
+C:\Users\Moham\source\repos\aksjehandel\aksjehandel\obj\Debug\netcoreapp3.1\staticwebassets\aksjehandel.StaticWebAssets.Manifest.cache
+C:\Users\Moham\source\repos\aksjehandel\aksjehandel\obj\Debug\netcoreapp3.1\staticwebassets\aksjehandel.StaticWebAssets.xml
+C:\Users\Moham\source\repos\aksjehandel\aksjehandel\obj\Debug\netcoreapp3.1\scopedcss\bundle\aksjehandel.styles.css
+C:\Users\Moham\source\repos\aksjehandel\aksjehandel\obj\Debug\netcoreapp3.1\aksjehandel.RazorTargetAssemblyInfo.cache
+C:\Users\Moham\source\repos\aksjehandel\aksjehandel\obj\Debug\netcoreapp3.1\aksjehandel.csproj.CopyComplete
+C:\Users\Moham\source\repos\aksjehandel\aksjehandel\obj\Debug\netcoreapp3.1\aksjehandel.dll
+C:\Users\Moham\source\repos\aksjehandel\aksjehandel\obj\Debug\netcoreapp3.1\aksjehandel.pdb
+C:\Users\Moham\source\repos\aksjehandel\aksjehandel\obj\Debug\netcoreapp3.1\aksjehandel.genruntimeconfig.cache
+F:\Web Applikasjoner\aksjehandel\aksjehandel\bin\Debug\netcoreapp3.1\appsettings.Development.json
+F:\Web Applikasjoner\aksjehandel\aksjehandel\bin\Debug\netcoreapp3.1\appsettings.json
+F:\Web Applikasjoner\aksjehandel\aksjehandel\bin\Debug\netcoreapp3.1\aksjehandel.exe
+F:\Web Applikasjoner\aksjehandel\aksjehandel\bin\Debug\netcoreapp3.1\aksjehandel.deps.json
+F:\Web Applikasjoner\aksjehandel\aksjehandel\bin\Debug\netcoreapp3.1\aksjehandel.runtimeconfig.json
+F:\Web Applikasjoner\aksjehandel\aksjehandel\bin\Debug\netcoreapp3.1\aksjehandel.runtimeconfig.dev.json
+F:\Web Applikasjoner\aksjehandel\aksjehandel\bin\Debug\netcoreapp3.1\aksjehandel.dll
+F:\Web Applikasjoner\aksjehandel\aksjehandel\bin\Debug\netcoreapp3.1\aksjehandel.pdb
+F:\Web Applikasjoner\aksjehandel\aksjehandel\bin\Debug\netcoreapp3.1\Microsoft.Bcl.AsyncInterfaces.dll
+F:\Web Applikasjoner\aksjehandel\aksjehandel\bin\Debug\netcoreapp3.1\Microsoft.Bcl.HashCode.dll
+F:\Web Applikasjoner\aksjehandel\aksjehandel\bin\Debug\netcoreapp3.1\Microsoft.Data.Sqlite.dll
+F:\Web Applikasjoner\aksjehandel\aksjehandel\bin\Debug\netcoreapp3.1\Microsoft.DotNet.PlatformAbstractions.dll
+F:\Web Applikasjoner\aksjehandel\aksjehandel\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.dll
+F:\Web Applikasjoner\aksjehandel\aksjehandel\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Abstractions.dll
+F:\Web Applikasjoner\aksjehandel\aksjehandel\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Relational.dll
+F:\Web Applikasjoner\aksjehandel\aksjehandel\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Sqlite.dll
+F:\Web Applikasjoner\aksjehandel\aksjehandel\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Abstractions.dll
+F:\Web Applikasjoner\aksjehandel\aksjehandel\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Memory.dll
+F:\Web Applikasjoner\aksjehandel\aksjehandel\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.dll
+F:\Web Applikasjoner\aksjehandel\aksjehandel\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Abstractions.dll
+F:\Web Applikasjoner\aksjehandel\aksjehandel\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Binder.dll
+F:\Web Applikasjoner\aksjehandel\aksjehandel\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.dll
+F:\Web Applikasjoner\aksjehandel\aksjehandel\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+F:\Web Applikasjoner\aksjehandel\aksjehandel\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyModel.dll
+F:\Web Applikasjoner\aksjehandel\aksjehandel\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.dll
+F:\Web Applikasjoner\aksjehandel\aksjehandel\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.Abstractions.dll
+F:\Web Applikasjoner\aksjehandel\aksjehandel\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Options.dll
+F:\Web Applikasjoner\aksjehandel\aksjehandel\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
+F:\Web Applikasjoner\aksjehandel\aksjehandel\bin\Debug\netcoreapp3.1\SQLitePCLRaw.batteries_v2.dll
+F:\Web Applikasjoner\aksjehandel\aksjehandel\bin\Debug\netcoreapp3.1\SQLitePCLRaw.nativelibrary.dll
+F:\Web Applikasjoner\aksjehandel\aksjehandel\bin\Debug\netcoreapp3.1\SQLitePCLRaw.core.dll
+F:\Web Applikasjoner\aksjehandel\aksjehandel\bin\Debug\netcoreapp3.1\SQLitePCLRaw.provider.dynamic_cdecl.dll
+F:\Web Applikasjoner\aksjehandel\aksjehandel\bin\Debug\netcoreapp3.1\System.Collections.Immutable.dll
+F:\Web Applikasjoner\aksjehandel\aksjehandel\bin\Debug\netcoreapp3.1\System.Diagnostics.DiagnosticSource.dll
+F:\Web Applikasjoner\aksjehandel\aksjehandel\bin\Debug\netcoreapp3.1\System.Text.Json.dll
+F:\Web Applikasjoner\aksjehandel\aksjehandel\bin\Debug\netcoreapp3.1\runtimes\alpine-x64\native\libe_sqlite3.so
+F:\Web Applikasjoner\aksjehandel\aksjehandel\bin\Debug\netcoreapp3.1\runtimes\linux-arm\native\libe_sqlite3.so
+F:\Web Applikasjoner\aksjehandel\aksjehandel\bin\Debug\netcoreapp3.1\runtimes\linux-arm64\native\libe_sqlite3.so
+F:\Web Applikasjoner\aksjehandel\aksjehandel\bin\Debug\netcoreapp3.1\runtimes\linux-armel\native\libe_sqlite3.so
+F:\Web Applikasjoner\aksjehandel\aksjehandel\bin\Debug\netcoreapp3.1\runtimes\linux-musl-x64\native\libe_sqlite3.so
+F:\Web Applikasjoner\aksjehandel\aksjehandel\bin\Debug\netcoreapp3.1\runtimes\linux-x64\native\libe_sqlite3.so
+F:\Web Applikasjoner\aksjehandel\aksjehandel\bin\Debug\netcoreapp3.1\runtimes\linux-x86\native\libe_sqlite3.so
+F:\Web Applikasjoner\aksjehandel\aksjehandel\bin\Debug\netcoreapp3.1\runtimes\osx-x64\native\libe_sqlite3.dylib
+F:\Web Applikasjoner\aksjehandel\aksjehandel\bin\Debug\netcoreapp3.1\runtimes\win-arm\native\e_sqlite3.dll
+F:\Web Applikasjoner\aksjehandel\aksjehandel\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\e_sqlite3.dll
+F:\Web Applikasjoner\aksjehandel\aksjehandel\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\e_sqlite3.dll
+F:\Web Applikasjoner\aksjehandel\aksjehandel\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\e_sqlite3.dll
+F:\Web Applikasjoner\aksjehandel\aksjehandel\obj\Debug\netcoreapp3.1\aksjehandel.csproj.AssemblyReference.cache
+F:\Web Applikasjoner\aksjehandel\aksjehandel\obj\Debug\netcoreapp3.1\aksjehandel.GeneratedMSBuildEditorConfig.editorconfig
+F:\Web Applikasjoner\aksjehandel\aksjehandel\obj\Debug\netcoreapp3.1\aksjehandel.AssemblyInfoInputs.cache
+F:\Web Applikasjoner\aksjehandel\aksjehandel\obj\Debug\netcoreapp3.1\aksjehandel.AssemblyInfo.cs
+F:\Web Applikasjoner\aksjehandel\aksjehandel\obj\Debug\netcoreapp3.1\aksjehandel.csproj.CoreCompileInputs.cache
+F:\Web Applikasjoner\aksjehandel\aksjehandel\obj\Debug\netcoreapp3.1\aksjehandel.MvcApplicationPartsAssemblyInfo.cache
+F:\Web Applikasjoner\aksjehandel\aksjehandel\obj\Debug\netcoreapp3.1\staticwebassets\aksjehandel.StaticWebAssets.Manifest.cache
+F:\Web Applikasjoner\aksjehandel\aksjehandel\obj\Debug\netcoreapp3.1\staticwebassets\aksjehandel.StaticWebAssets.xml
+F:\Web Applikasjoner\aksjehandel\aksjehandel\obj\Debug\netcoreapp3.1\scopedcss\bundle\aksjehandel.styles.css
+F:\Web Applikasjoner\aksjehandel\aksjehandel\obj\Debug\netcoreapp3.1\aksjehandel.RazorTargetAssemblyInfo.cache
+F:\Web Applikasjoner\aksjehandel\aksjehandel\obj\Debug\netcoreapp3.1\aksjehandel.csproj.CopyComplete
+F:\Web Applikasjoner\aksjehandel\aksjehandel\obj\Debug\netcoreapp3.1\aksjehandel.dll
+F:\Web Applikasjoner\aksjehandel\aksjehandel\obj\Debug\netcoreapp3.1\aksjehandel.pdb
+F:\Web Applikasjoner\aksjehandel\aksjehandel\obj\Debug\netcoreapp3.1\aksjehandel.genruntimeconfig.cache
