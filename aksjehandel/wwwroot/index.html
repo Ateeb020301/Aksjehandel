@@ -3,15 +3,297 @@
 <head>
     <meta charset="utf-8" />
     <title></title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
-    <script src="js/index.js"></script>    
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/index.js"></script>  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">  
 </head>
 <body>
-    <div class="container">
-        <h1>Her er kundene:</h1>
-        <div id="kundene"></div>
-        <a href="lagre.html" class="btn btn-primary">Lagre ny kunde</a>
+    <div class="main-container">
+        <div class="container-nav">
+            <div class="nav-title">
+                <div class="nav-logo">
+                    <h2>LOGO</h2>
+                </div>
+            </div>
+            <div class="nav">
+                <div class="nav-item">
+                    <div class="icon">
+                        <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+                    </div>
+                    <div class="txt">
+                        <span>Dashboard</span>
+                    </div>
+                </div>
+
+                <div class="nav-item">
+                    <div class="icon">
+                        <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+                    </div>
+                    <div class="txt">
+                        <span>Dashboard</span>
+                    </div>
+                </div>
+                <div class="nav-item">
+                    <div class="icon">
+                        <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+                    </div>
+                    <div class="txt">
+                        <span>Dashboard</span>
+                    </div>
+                </div>
+                <div class="nav-item">
+                    <div class="icon">
+                        <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+                    </div>
+                    <div class="txt">
+                        <span>Dashboard</span>
+                    </div>
+                </div>
+                <div class="nav-item">
+                    <div class="icon">
+                        <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+                    </div>
+                    <div class="txt">
+                        <span>Dashboard</span>
+                    </div>
+                </div>
+            </div>
+            <div class="nav-footer">
+                <div class="nav-footer-info">
+                    <h3>Trading 4 Profit</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-body">
+            <div class="body-header">
+                <div class="body-person">
+                    <div class="info">
+                        <p id="name">
+                            Mohammad
+                        </p>
+                        <p id="role">
+                            Member
+                        </p>
+                    </div>
+                    <div class="image">
+                        <img src="images/pp.png" height="50px" width="50px;">
+                    </div>
+                </div>
+            </div>
+            <div class="body-cont">
+                <div class="body-dashboard">
+                    <div class="dashbord-txt">
+                        <h2>Dashboard</h2>
+                    </div>
+                    <div class="accountBalance">
+                        <h4>Account Balance: <span class="balance">$1,000</span></h4>
+                    </div>
+                </div>
+
+                <div class="body-coins">
+                    <div class="coin-container">
+                        <div class="coin-info">
+                            <img src="" class="coinImg">
+                            <div class="coin-infos">
+                                <div class="cont">
+                                    <p>Coin: <span class="coin"></span></p>
+                                    <p>Symbol: <span class="symbol"></span></p>
+                                    <p>Price: <span class="price"></span></p>
+                                    <p>Circulating Supply: <span class="circulatingSupply"></span></p>
+                                </div>
+                            </div>
+
+                            <div class="coin-button">
+                                <div class="button-vMore">
+                                    <button id="vMore">View More</button>
+                                </div>
+                                <div class="button-purchase">
+                                    <button id="purchase">Purchase</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="coin-container">
+                        <div class="coin-info">
+                            <img src="" class="coinImg">
+                            <div class="coin-infos">
+                                <div class="cont">
+                                    <p>Coin: <span class="coin"></span></p>
+                                    <p>Symbol: <span class="symbol"></span></p>
+                                    <p>Price: <span class="price"></span></p>
+                                    <p>Circulating Supply: <span class="circulatingSupply"></span></p>
+                                </div>
+                            </div>
+
+                            <div class="coin-button">
+                                <div class="button-vMore">
+                                    <button id="vMore">View More</button>
+                                </div>
+                                <div class="button-purchase">
+                                    <button id="purchase">Purchase</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="coin-container">
+                        <div class="coin-info">
+                            <img src="" class="coinImg">
+                            <div class="coin-infos">
+                                <div class="cont">
+                                    <p>Coin: <span class="coin"></span></p>
+                                    <p>Symbol: <span class="symbol"></span></p>
+                                    <p>Price: <span class="price"></span></p>
+                                    <p>Circulating Supply: <span class="circulatingSupply"></span></p>
+                                </div>
+                            </div>
+
+                            <div class="coin-button">
+                                <div class="button-vMore">
+                                    <button id="vMore">View More</button>
+                                </div>
+                                <div class="button-purchase">
+                                    <button id="purchase">Purchase</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="coin-container">
+                        <div class="coin-info">
+                            <img src="" class="coinImg">
+                            <div class="coin-infos">
+                                <div class="cont">
+                                    <p>Coin: <span class="coin"></span></p>
+                                    <p>Symbol: <span class="symbol"></span></p>
+                                    <p>Price: <span class="price"></span></p>
+                                    <p>Circulating Supply: <span class="circulatingSupply"></span></p>
+                                </div>
+                            </div>
+
+                            <div class="coin-button">
+                                <div class="button-vMore">
+                                    <button id="vMore">View More</button>
+                                </div>
+                                <div class="button-purchase">
+                                    <button id="purchase">Purchase</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="coin-container">
+                        <div class="coin-info">
+                            <img src="" class="coinImg">
+                            <div class="coin-infos">
+                                <div class="cont">
+                                    <p>Coin: <span class="coin"></span></p>
+                                    <p>Symbol: <span class="symbol"></span></p>
+                                    <p>Price: <span class="price"></span></p>
+                                    <p>Circulating Supply: <span class="circulatingSupply"></span></p>
+                                </div>
+                            </div>
+
+                            <div class="coin-button">
+                                <div class="button-vMore">
+                                    <button id="vMore">View More</button>
+                                </div>
+                                <div class="button-purchase">
+                                    <button id="purchase">Purchase</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="coin-container">
+                        <div class="coin-info">
+                            <img src="" class="coinImg">
+                            <div class="coin-infos">
+                                <div class="cont">
+                                    <p>Coin: <span class="coin"></span></p>
+                                    <p>Symbol: <span class="symbol"></span></p>
+                                    <p>Price: <span class="price"></span></p>
+                                    <p>Circulating Supply: <span class="circulatingSupply"></span></p>
+                                </div>
+                            </div>
+
+                            <div class="coin-button">
+                                <div class="button-vMore">
+                                    <button id="vMore">View More</button>
+                                </div>
+                                <div class="button-purchase">
+                                    <button id="purchase">Purchase</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="coin-container">
+                        <div class="coin-info">
+                            <img src="" class="coinImg">
+                            <div class="coin-infos">
+                                <div class="cont">
+                                    <p>Coin: <span class="coin"></span></p>
+                                    <p>Symbol: <span class="symbol"></span></p>
+                                    <p>Price: <span class="price"></span></p>
+                                    <p>Circulating Supply: <span class="circulatingSupply"></span></p>
+                                </div>
+                            </div>
+
+                            <div class="coin-button">
+                                <div class="button-vMore">
+                                    <button id="vMore">View More</button>
+                                </div>
+                                <div class="button-purchase">
+                                    <button id="purchase">Purchase</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="coin-container">
+                        <div class="coin-info">
+                            <img src="" class="coinImg">
+                            <div class="coin-infos">
+                                <div class="cont">
+                                    <p>Coin: <span class="coin"></span></p>
+                                    <p>Symbol: <span class="symbol"></span></p>
+                                    <p>Price: <span class="price"></span></p>
+                                    <p>Circulating Supply: <span class="circulatingSupply"></span></p>
+                                </div>
+                            </div>
+
+                            <div class="coin-button">
+                                <div class="button-vMore">
+                                    <button id="vMore">View More</button>
+                                </div>
+                                <div class="button-purchase">
+                                    <button id="purchase">Purchase</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="coin-container">
+                        <div class="coin-info">
+                            <img src="" class="coinImg">
+                            <div class="coin-infos">
+                                <div class="cont">
+                                    <p>Coin: <span class="coin"></span></p>
+                                    <p>Symbol: <span class="symbol"></span></p>
+                                    <p>Price: <span class="price"></span></p>
+                                    <p>Circulating Supply: <span class="circulatingSupply"></span></p>
+                                </div>
+                            </div>
+
+                            <div class="coin-button">
+                                <div class="button-vMore">
+                                    <button id="vMore">View More</button>
+                                </div>
+                                <div class="button-purchase">
+                                    <button id="purchase">Purchase</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 </html>

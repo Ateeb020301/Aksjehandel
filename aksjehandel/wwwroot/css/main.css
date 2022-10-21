@@ -1,0 +1,244 @@
+:root {
+    --primary: #01A3FF;
+    --secondary: #9568FF;
+    --primary-hover: #0083cd;
+    --primary-dark: #004267;
+    --background: #e6ebee;
+    --title: #d5dfe7;
+    --bottom-border: #d7e1e8;
+}
+* {
+    margin: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: lighter;
+}
+
+body {
+    max-height: 100vh;
+    background-color: var(--background);
+}
+.container-nav {
+    width: 39vh;
+    display: flex;
+    flex-direction: column;
+    flex-basis: 18%;
+    height: 100vh;
+    border-right-style: solid;
+    border-width: 4px;
+    border-color: var(--title);
+    background-color: var(--title);
+}
+
+.nav-title {
+    height: 12vh;
+    background-color: var(--title);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+}
+
+.container-nav .nav {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    color: #79797a;
+    background-color: var(--background);
+}
+
+.nav .nav-item {
+    display: flex;
+    flex-direction: row;
+    margin: 35px 0 0 30px ;
+    transition: 0.2s;
+}
+
+.nav-item:hover {
+    color: var(--primary);
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.nav-item .icon {
+    padding-right: 15px;
+    font-size: 18px;
+}
+
+.nav-item span {
+    font-size: 14.5px;
+    font-weight: 500;
+}
+
+.nav-footer {
+    background-color: var(--background);
+}
+
+.nav-footer-info {
+    transition: 0.5s;
+    font-size: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--primary-hover);
+    font-weight: 900;
+    color: white;
+    border-radius: 5px 5px 0 0;
+    height: 8vh;
+    margin: 0 5px 0 5px;
+}
+
+.nav-footer-info h3 {
+    padding: 10px;
+}
+
+.nav-footer-info:hover {
+    transition: 0.5s;
+    border-radius: 5px;
+    height: 10vh;
+    margin: 15px;
+}
+
+/*------------NAV END-----------*/
+
+/*-----------START BODY---------*/
+.main-container {
+    display: flex;
+    flex-direction: row;
+    max-height: 100vh;
+
+}
+.container-body {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 82%;
+    height: 100vh;
+}
+
+.body-header {
+    display: flex;
+    justify-content: flex-end;
+    border-bottom-style: solid;
+    border-color: var(--title);
+    border-width: 1px;
+    height: 12vh;
+    width: 100%;
+
+}
+
+.body-person {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 20px;
+    text-align: center;
+}
+
+#name {
+    font-size: 16px;
+    font-weight: bold;
+    color: #79797a;
+}
+#role {
+    color:#79797a;
+    opacity: 0.8;
+    font-size: 15px;
+}
+
+.image {
+    border-radius: 15px;
+}
+
+.body-dashboard {
+    display: flex;
+    align-items: center;
+    padding: 0 25px 0 25px;
+    color: black;
+    flex-basis: auto;
+    margin: 25px;
+    height: 15vh;
+    border-radius: 0.625rem;;
+    background-color: #ffffff;
+    justify-content: space-between;
+}
+
+.body-cont {
+    overflow-y: scroll;
+}
+
+.body-dashboard h2 {
+    font-size: 1.375rem;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+.body-coins {
+    margin: 0px 0px 0px 25px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-basis: 100%;
+}
+
+.coin-container {
+    margin: 0 20px 25px 0;
+    display: flex;
+    width: 25%;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+    background-color: #ffffff;
+    padding: 30px;
+    font-size: 14px;
+}
+
+.coin-info {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.cont p {
+    margin-top: 8px;
+}
+
+.coinImg {
+    height: 75px;
+    width: 75px;
+    border-radius: 100%;
+}
+
+
+
+.coin-infos .cont {
+    padding: 5px;
+    margin: 10px;
+}
+
+.coin-button {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#purchase, #vMore {
+    font-size: 14px;
+    padding: 20px;
+    outline: none;
+    border: none;
+    margin: 1px;
+}
+
+#vMore {
+    background-color:var(--primary);
+    color: white;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+#purchase {
+    background-color: green;
+    color: white;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+/*------------END BODY----------*/
