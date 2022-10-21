@@ -83,7 +83,7 @@ body {
     font-weight: 900;
     color: white;
     border-radius: 5px 5px 0 0;
-    height: 8vh;
+    height: 5vh;
     margin: 0 5px 0 5px;
 }
 
@@ -155,7 +155,7 @@ body {
     color: black;
     flex-basis: auto;
     margin: 25px;
-    height: 15vh;
+    height: 10%;
     border-radius: 0.625rem;;
     background-color: #ffffff;
     justify-content: space-between;
@@ -181,7 +181,7 @@ body {
 .coin-container {
     margin: 0 20px 25px 0;
     display: flex;
-    width: 25%;
+    flex: 1 1 25%;
     flex-direction: column;
     align-items: center;
     border-radius: 10px;
