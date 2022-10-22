@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "C9uxo24jA7zhB6sThVJSzLaYUb5zICt47NzGkmkZQi+fvtVjhOQI03RNgJpS28gOJmI2tzyr2EUYr32MMBrvzg==",
+  "dgSpecHash": "CxWZuijLFJrKmkKkHLR9nPxacxEd4iGLSROs41aHB1Axe2nPKrGrN2zm/6YepTYXxWVz3twB+E+Dak1hAP23dQ==",
   "success": true,
-  "projectFilePath": "F:\\Web Applikasjoner\\aksjehandel\\aksjehandel\\aksjehandel.csproj",
+  "projectFilePath": "C:\\Users\\Moham\\Documents\\GitHub\\aksjehandel\\aksjehandel\\aksjehandel.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Moham\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\Moham\\.nuget\\packages\\microsoft.bcl.hashcode\\1.1.0\\microsoft.bcl.hashcode.1.1.0.nupkg.sha512",
@@ -26,6 +26,7 @@
     "C:\\Users\\Moham\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\3.1.4\\microsoft.extensions.logging.abstractions.3.1.4.nupkg.sha512",
     "C:\\Users\\Moham\\.nuget\\packages\\microsoft.extensions.options\\3.1.4\\microsoft.extensions.options.3.1.4.nupkg.sha512",
     "C:\\Users\\Moham\\.nuget\\packages\\microsoft.extensions.primitives\\3.1.4\\microsoft.extensions.primitives.3.1.4.nupkg.sha512",
+    "C:\\Users\\Moham\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
     "C:\\Users\\Moham\\.nuget\\packages\\restsharp\\108.0.2\\restsharp.108.0.2.nupkg.sha512",
     "C:\\Users\\Moham\\.nuget\\packages\\sqlitepclraw.bundle_e_sqlite3\\2.0.2\\sqlitepclraw.bundle_e_sqlite3.2.0.2.nupkg.sha512",
     "C:\\Users\\Moham\\.nuget\\packages\\sqlitepclraw.core\\2.0.2\\sqlitepclraw.core.2.0.2.nupkg.sha512",

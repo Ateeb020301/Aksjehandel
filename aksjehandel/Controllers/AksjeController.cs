@@ -1,11 +1,14 @@
 ﻿using aksjehandel.Model;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json.Linq;
 using RestSharp;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace aksjehandel.Controllers
 {
@@ -16,6 +19,10 @@ namespace aksjehandel.Controllers
         public AksjeController(AksjeContext db)
         {
             _db = db;
+        }
+
+        public bool LeggInn(Aksje aksjeInn) {
+            return true;
         }
 
         public List<Aksje> HentAlle()
