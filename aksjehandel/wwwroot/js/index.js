@@ -6,7 +6,7 @@
 function LagreData(aksjer) {
     console.log(aksjer); 
     let bodyCoins = document.getElementsByClassName("body-coins")[0];
-    let nyAksjer = {};
+    let nyAksjer;
     let temp;
     for (i = 0; i < aksjer.length; i++) {
         for (j = 0; j < aksjer.length; j++) {
@@ -43,19 +43,27 @@ function LagreData(aksjer) {
             </div>
         </div>
         `
-        nyAksjer[i] = aksjer[i];
+        nyAksjer = aksjer[i];
+        leggInn(nyAksjer, i);
     }
-    leggInn(nyAksjer);
 }
 
-function leggInn(aksjer) {
-    let aksje = aksjer;
-    const url = "Aksje/LeggInn";
-    $.post(url, aksje, function(verify) {
-        if (verify) {
+function leggInn(aksjer, i) {
+    let aksje = {
+        id: i,
+        symbol: aksjer.symbol,
+        aksjenavn: aksjer.name,
+        pris: Math.round(aksjer.current_price),
+        stock: Math.round(aksjer.circulating_supply)
+    };
+
+    const url = "Aksje/Lagre";
+    $.post(url, aksje, function (OK) {
+        if (OK) {
             console.log(aksje);
-        } else {
-            console.log(`ID ${nr} ERROR`)
+        }
+        else {
+            $("#feil").html("Feil i db - prøv igjen senere");
         }
     });
 }

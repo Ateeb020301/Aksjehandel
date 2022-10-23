@@ -11,7 +11,7 @@ namespace aksjehandel.Model
         public bool test = true;
         public AksjeContext(DbContextOptions<AksjeContext> options) : base(options)
         {
-                Database.EnsureCreated();
+                if (!Database.EnsureCreated()) { Database.EnsureCreated(); };
         }
         public DbSet<Aksje> Aksjer { get; set; }
     }
