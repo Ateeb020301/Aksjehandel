@@ -157,9 +157,25 @@ body {
 
 #role {
     color:#79797a;
-    opacity: 0.8;
+    opacity: 0.9;
     font-size: 15px;
 }
+
+#profil button {
+    color:#79797a;
+    opacity: 0.7;
+    font-size: 12px;
+    background-color: none;
+    border-bottom: solid;
+    border: none;
+    outline: none;
+    text-decoration: underline;
+}
+
+#profil button:hover {
+    cursor: pointer;
+}
+
 
 .image {
     border-radius: 15px;
@@ -172,7 +188,7 @@ body {
     color: black;
     flex-basis: auto;
     margin: 25px;
-    height: 10%;
+    min-height: 7vh;
     border-radius: 0.625rem;;
     background-color: #ffffff;
     justify-content: space-between;
@@ -189,7 +205,7 @@ body {
 }
 
 .body-coins {
-    margin: 0px 0px 0px 25px;
+    margin: 0px 10px 0px 25px;
     display: flex;
     flex-wrap: wrap;
     flex-basis: 100%;
@@ -259,3 +275,257 @@ body {
 }
 
 /*------------END BODY----------*/
+
+.status-info {
+    display: flex;
+    justify-content: space-evenly;
+    flex-basis: 100%;
+}
+
+.status-coin {
+    display: flex;
+    flex-direction: column;
+    height: 6vh;
+    margin-bottom: 10px;
+    flex: 1;
+    border-radius: 10px;
+    background-color: white;
+    justify-content: center;
+    padding: 0px 0 0 15px;
+}
+
+.status-coin h3 {
+    font-size: 14px;
+}
+
+.status-coin:nth-child(odd) {
+    background-color: var(--primary);
+    color: white;
+}
+
+.status-coin:nth-child(even) {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.status-coin:nth-child(odd):hover {
+    opacity: .8;
+    cursor: pointer;
+}
+
+.status-coin:hover {
+    opacity: .9;
+    cursor: pointer;
+}
+
+.status-coin p {
+    font-size: 10px;
+    opacity: .8;
+}
+
+.status-coin-info {
+    display: flex;
+    flex-direction: row;
+    min-height: 45vh;
+    margin-top: 20px;
+    flex-basis: 100%;
+}
+
+.chart {
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap;
+    border-radius: 10px;
+    background-color: white;
+    flex: 1;
+}
+
+.chart1 {
+    margin: 10px;
+}
+
+.chartTxt {
+    margin: 10px;
+    margin-left: 60px;
+    margin-right: 35px;
+    border-bottom-style: solid;
+    border-width: 1px;
+
+}
+
+.status-footer-info {
+    height: 15vh;
+    margin-top: 10px;
+    flex: 1;
+    border-radius: 10px;
+    background-color: white;
+}
+
+.db-info {
+    flex:1;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin-right: 10px;
+    border-radius: 10px;
+    background-color: white;
+}
+
+.db-header-coin {
+    display: flex;
+    align-items: center;
+    margin: 20px 20px 20px 40px;
+}
+
+.db-header-coin img {
+    margin-right: 15px;
+}
+
+.db-info .converter {
+    margin: 20px;
+    display: flex;
+}
+
+.db-info input[type="number"] {
+    padding: 5px;
+    border: none;
+    outline: none;
+
+}
+
+.db-info input[type="number"]:last-child {
+    background-color: var(--background)
+}
+
+.converter-cont {
+    box-sizing: border-box;
+    margin: 0px 0px 16px;
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+}
+
+.firstInp {
+    margin: 0px;
+    box-sizing: border-box;
+    position: relative;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    border: 1px solid rgb(239, 242, 245);
+}
+
+.inpCont {
+    box-sizing: border-box;
+    margin: 0px;
+    display: flex;
+    flex: 1 1 0%;
+    flex-direction: row;
+    padding: 20px 24px;
+    background-color: rgb(255, 255, 255);
+    -webkit-box-align: center;
+    align-items: center;
+}
+
+.db-info-coin {
+    border-right-style: solid;
+    border-width: 1px;
+    display: flex;
+    align-items: center;
+    margin: 10px;
+}
+
+.db-info-about {
+    flex: 1;
+    height: 5vh;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.db-info-about:nth-child(even) {
+    margin: 10px;
+    border-right-style: solid;
+    border-left-style: solid;
+    border-width: 1px;
+}
+
+.db-info-about p {
+    padding-right: 20px;
+}
+
+.db-info-about p:nth-child(even) {
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+/*----CURRENCY CONVERTER----*/
+.currencyImg {
+    height: 32px;
+    width: 32px;
+    border-radius: 16px;
+    margin-inline-end: 12px;
+}
+
+.inpCryptoText {
+    box-sizing: border-box;
+    margin: 0px;
+}
+
+.inpCryptoCont {
+    box-sizing: border-box;
+    margin: 0px;
+    display: flex;
+    flex: 1 1 0%;
+    flex-direction: row;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: end;
+    justify-content: flex-end;
+    color: rgb(34, 37, 49);
+}
+
+.inpCrypto {
+    padding: 10px 0px;
+    background: transparent;
+    caret-color: rgb(56, 97, 251);
+    border: none;
+    font-size: 18px;
+    text-align: end;
+    outline: none;
+    appearance: none;
+    color: rgb(34, 37, 49);
+    font-weight: 700;
+    font-family: Inter, sans-serif;
+    width: 100%;
+}
+
+.secondInp {
+    box-sizing: border-box;
+    margin: 0px;
+    display: flex;
+    flex: 1 1 0%;
+    flex-direction: row;
+    padding: 20px 24px;
+    background-color: rgb(248, 250, 253);
+    -webkit-box-align: center;
+    align-items: center;
+}
+
+.firstInp > img {
+    cursor: pointer;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.POSot {
+    font-size: 11px;
+}
+.converter-item-name {
+    font-weight: 600;
+    font-size: 12px;
+}

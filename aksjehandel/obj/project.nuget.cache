@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "CxWZuijLFJrKmkKkHLR9nPxacxEd4iGLSROs41aHB1Axe2nPKrGrN2zm/6YepTYXxWVz3twB+E+Dak1hAP23dQ==",
+  "dgSpecHash": "WDza4Jfgoh/XdjkU+bVd1qAOcIRrQkphAK4XWLr0h9/b8J2yN5nt1t7dEGDiNucStIETBFvXl7NQ3DiGy0EXNA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Moham\\Documents\\GitHub\\aksjehandel\\aksjehandel\\aksjehandel.csproj",
+  "projectFilePath": "F:\\Web Applikasjoner\\aksjehandel\\aksjehandel\\aksjehandel.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Moham\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\Moham\\.nuget\\packages\\microsoft.bcl.hashcode\\1.1.0\\microsoft.bcl.hashcode.1.1.0.nupkg.sha512",

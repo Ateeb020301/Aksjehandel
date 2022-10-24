@@ -12,6 +12,6 @@ namespace aksjehandel.Model
         public string Aksjenavn { get; set; }
         public int Pris { get; set; }
         public int Stock { get; set; }
-
+        public string Image { get; set; }
     }
 }

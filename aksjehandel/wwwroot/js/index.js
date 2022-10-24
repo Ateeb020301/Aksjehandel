@@ -2,114 +2,98 @@
   .then((response) => response.json())
   .then((data) => LagreData(data));
 
+let cryptoCount = 12;
 
 function LagreData(aksjer) {
-    console.log(aksjer); 
-    let bodyCoins = document.getElementsByClassName("body-coins")[0];
-    let nyAksjer;
-    let temp;
-    for (i = 0; i < aksjer.length; i++) {
-        for (j = 0; j < aksjer.length; j++) {
-            if (aksjer[i].current_price > aksjer[j].current_price) {
-                temp = aksjer[i];
-                aksjer[i] = aksjer[j];
-                aksjer[j] = temp;
+    const url = "Aksje/HentAlle";
+    $.get(url, function(data) {
+        if (data.length > 0 && data.length == cryptoCount) {
+            let formaterPrise = formaterPriser(data)
+            formaterData(formaterPrise);
+        } else {            
+            let temp;
+            for (i = 0; i < aksjer.length; i++) {
+                for (j = 0; j < aksjer.length; j++) {
+                    if (aksjer[i].current_price > aksjer[j].current_price) {
+                        temp = aksjer[i];
+                        aksjer[i] = aksjer[j];
+                        aksjer[j] = temp;
+                    }
+                }
             }
+            let sendAksje = [];
+            for (i = 0; i < cryptoCount; i++) {
+                let aksje = {
+                    id: i+1,
+                    symbol: aksjer[i].symbol.toUpperCase(),
+                    aksjenavn: aksjer[i].name,
+                    pris: Math.round(aksjer[i].current_price),
+                    stock: Math.round(aksjer[i].circulating_supply),
+                    image: aksjer[i].image
+                };                
+                sendAksje[i] = aksje;
+                const url = "Aksje/Lagre";
+                $.post(url, sendAksje[i], function (OK) {
+                    if (OK) {
+                        formaterData(sendAksje);
+                    }
+                    else {
+                        $("#feil").html("Feil i db - prøv igjen senere");
+                    }
+                });
+            }
+            formaterData(sendAksje);
         }
-    }
+    });
+}
 
-    for (i = 0; i < 12; i++) {
+
+function formaterData(aksjer) {
+    let bodyCoins = document.getElementsByClassName("body-coins")[0];
+    bodyCoins.innerHTML = "";
+    for (i = 0; i < aksjer.length; i++) {
         bodyCoins.innerHTML += `
         <div class="coin-container">
             <div class="coin-info">
                 <img src="${aksjer[i].image}" class="coinImg">
                 <div class="coin-infos">
                     <div class="cont">
-                        <p>Coin: <span class="coin">${aksjer[i].name}</span></p>
-                        <p>Symbol: <span class="symbol">${aksjer[i].symbol.toUpperCase()}</span></p>
-                        <p>Price: <span class="price">$${Math.round(aksjer[i].current_price)}</span></p>
-                        <p>Circulating Supply: <span class="circulatingSupply">${Math.round(aksjer[i].circulating_supply)}</span></p>
+                        <p>Coin: <span class="coin">${aksjer[i].aksjenavn}</span></p>
+                        <p>Symbol: <span class="symbol">${aksjer[i].symbol}</span></p>
+                        <p>Price: <span class="price">$${aksjer[i].pris}</span></p>
+                        <p>Supply: <span class="circulatingSupply">${aksjer[i].stock}</span></p>
                     </div>
                 </div>
 
                 <div class="coin-button">
                     <div class="button-vMore">
-                        <button id="vMore">View More</button>
+                        <button value="${aksjer[i].id}" onclick='hentEn(${aksjer[i].id})' class="vMore" id="vMore">View More</button>
                     </div>
                     <div class="button-purchase">
-                        <button id="purchase">Purchase</button>
+                        <button value="${aksjer[i].id}" class="purchase" id="purchase">Purchase</button>
                     </div>
                 </div>
             </div>
         </div>
-        `
-        nyAksjer = aksjer[i];
-        leggInn(nyAksjer, i);
+        `;
     }
 }
 
-function leggInn(aksjer, i) {
-    let aksje = {
-        id: i,
-        symbol: aksjer.symbol,
-        aksjenavn: aksjer.name,
-        pris: Math.round(aksjer.current_price),
-        stock: Math.round(aksjer.circulating_supply)
-    };
+function hentEn(id) {
+    window.location.href=`hentEn.html?id=${id}`;
+}
 
-    const url = "Aksje/Lagre";
-    $.post(url, aksje, function (OK) {
-        if (OK) {
-            console.log(aksje);
+
+function formaterPriser(priser) {
+    for (i = 0; i < priser.length; i++) {
+        for (j = 0; j < priser.length; j++) {
+            if (priser[i].pris > priser[j].pris) {
+                temp = priser[i];
+                priser[i] = priser[j];
+                priser[j] = temp;
+            }
         }
-        else {
-            $("#feil").html("Feil i db - prøv igjen senere");
-        }
-    });
-}
-
-
-
-
-  /*
-window.onload = function () {
-    hentAlleKunder();
-}
-
-function hentAlleKunder() {
-    $.get("aksje/hentAlle", function (aksjer) {
-        formaterAksjer(aksjer);
-    });
-}
-
-function formaterAksjer(aksjer) {
-    let ut = "<table class='table table-striped'>" +
-        "<tr>" +
-        "<th>Navn</th><th>Pris</th><th>Stock</th><th></th><th></th>" +
-        "</tr>";
-    for (let aksje of aksjer) {
-        ut += "<tr>" + 
-            "<td>" + aksje.aksjenavn + "</td>" +
-            "<td>" + aksje.pris + "</td>" +
-            "<td>" + aksje.stock + "</td>" +
-            "<td> <a class='btn btn-primary' href='endre.html?id=" + aksje.id+"'>Endre</a></td>"+
-            "<td> <button class='btn btn-danger' onclick='slettKunde(" + aksje.id+")'>Slett</button></td>"+
-            "</tr>";
     }
-    ut += "</table>";
-    $("#kundene").html(ut);
+
+    return priser;
 }
-
-function slettKunde(id) {
-    const url = "Kunde/Slett?id="+id;
-    $.get(url, function (OK) {
-        if (OK) {
-            window.location.href = 'index.html';
-        }
-        else {
-            $("#feil").html("Feil i db - prøv igjen senere");
-        }
-
-    });
-};
-*/

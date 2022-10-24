@@ -8,10 +8,9 @@ namespace aksjehandel.Model
 {
     public class AksjeContext : DbContext
     {
-        public bool test = true;
         public AksjeContext(DbContextOptions<AksjeContext> options) : base(options)
         {
-                if (!Database.EnsureCreated()) { Database.EnsureCreated(); };
+            Database.EnsureCreated();
         }
         public DbSet<Aksje> Aksjer { get; set; }
     }
