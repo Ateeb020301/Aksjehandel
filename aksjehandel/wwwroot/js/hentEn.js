@@ -83,7 +83,7 @@ function createHTML(aksjer) {
                     <p style="color: ${colorMarket};font-size: 11px; font-weight: 700"><i style="margin-right: 5px; font-size: 14px;"class="fa fa-caret-${updownMarket}" aria-hidden="true"></i></i>${funnetAksje.market_cap_change_percentage_24h.toLocaleString(undefined, {maximumFractionDigits: 2})}%</p> 
                 </div>
                 <div class="db-info-about">
-                    <p style="font-size: 11px; font-weight: 700; color: gray;">Fully Diluted Market Cap</p>
+                    <p style="font-size: 11px; font-weight: 700; color: gray;">Diluted Market Cap</p>
                     <p style="font-weight: 700; font-size: 12px">$ ${funnetAksje.market_cap.toLocaleString(undefined, {maximumFractionDigits: 2})}</p>
                     <p style="color: ${colorDiulated};font-size: 11px; font-weight: 700"><i style="margin-right: 5px; font-size: 14px;"class="fa fa-caret-${updownDiulated}" aria-hidden="true"></i></i>${diulatedPercentage.toLocaleString(undefined, {maximumFractionDigits: 2})}%</p> 
                 </div>
@@ -100,8 +100,8 @@ function createHTML(aksjer) {
                                 <div class="inpCont" style="order: 1;">
                                     <img src="${dbAksje.image}" alt="" class="currencyImg">
                                     <div class="inpCryptoText">
-                                        <p class="POSot">BTC</p>
-                                        <p class="converter-item-name" color="text" >Bitcoin</p>
+                                        <p class="POSot">${dbAksje.symbol.toUpperCase()}</p>
+                                        <p class="converter-item-name" color="text" >${dbAksje.aksjenavn}</p>
                                     </div>
                                     <div class="inpCryptoCont">
                                         <input oninput="calcPrice()" pattern="/^-?d+.?d*$/" placeholder="0" class="inpCrypto">
@@ -111,7 +111,6 @@ function createHTML(aksjer) {
                                     <img src="https://s2.coinmarketcap.com/static/cloud/img/fiat-flags/USD.svg" alt="" class="currencyImg">
                                     <div class="inpCryptoText">
                                         <p class="POSot">USD</p>
-                                        <p class="converter-item-name" color="text" >United States Dollar</p>
                                     </div>
                                     <div class="inpCryptoCont">
                                         <input pattern="/^-?d+.?d*$/" placeholder="0" class="inpCrypto" readonly>
