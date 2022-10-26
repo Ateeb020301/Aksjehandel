@@ -1,9 +1,10 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
     <title></title>
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">  
 </head>
@@ -21,7 +22,7 @@
                         <i class="fa fa-home" aria-hidden="true"></i>
                     </div>
                     <div class="txt">
-                        <a href="#" class="active">Dashboard</a>
+                        <a href="index.html">Dashboard</a>
                     </div>
                 </div>
 
@@ -38,7 +39,7 @@
                         <i class="fa fa-credit-card" aria-hidden="true"></i>
                     </div>
                     <div class="txt">
-                        <a href="bestillinger.html">Mine Bestillinger</a>
+                        <a href="#" class="active">Mine Bestillinger</a>
                     </div>
                 </div>
                 <div class="nav-item">
@@ -58,41 +59,42 @@
         <div class="container-body">
             <div class="body-header">
                 <div class="body-person">
-                    <div class="info">
-                        <select id="name">
-                            <option selected disabled value="">Velg Kunde</option>
-                        </select>
-                
-                        <p id="role">
-                            
-                        </p>
-                        <p id="profil">
-                            
-                        </p>
-                    </div>
-                    <div class="image">
-                        <img src="images/pp.png" height="50px" width="50px;">
+                    <div class="body-person">
+                        <div class="info">
+                            <select id="name">
+                                <option selected disabled value="">Velg Kunde</option>
+                            </select>
+                    
+                            <p id="role">
+                                
+                            </p>
+                            <p id="profil">
+                                
+                            </p>
+                        </div>
+                        <div class="image">
+                            <img src="images/pp.png" height="50px" width="50px;">
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="body-cont">
                 <div class="body-dashboard">
                     <div class="dashbord-txt">
-                        <h2>Dashboard</h2>
+                        <h2>Mine Bestillinger</h2>
                     </div>
                     <div class="accountBalance">
                         <h4>Account Balance: $<span class="balance">0</span></h4>
                     </div>
                 </div>
 
-                <div class="body-coins">
+                <div class="kunderTabell">
 
                 </div>
             </div>
         </div>
     </div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="js/index.js"></script>  
+    <script src="js/hentBestillinger.js"></script>
 </body>
 </html>

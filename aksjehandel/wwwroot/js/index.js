@@ -1,46 +1,128 @@
-﻿fetch('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false&price_change_percentage=1h%2C24h%2C7d')
+﻿const options = {
+	method: 'GET',
+	headers: {
+		'X-RapidAPI-Key': '65057d1335msh82e2fdcf14b3731p1e4bcfjsn149c5de9ee62',
+		'X-RapidAPI-Host': 'twelve-data1.p.rapidapi.com'
+	}
+};
+let info = document.getElementsByClassName("info")[0];
+let balance = document.getElementsByClassName("balance")[0];
+let select = document.getElementById("name");
+
+let rolle = document.getElementById("role");
+let profil = document.getElementById("profil");
+let amount = 0;
+let kundeArr;
+//HUSK LOCALSTORAGE
+window.onload = function() {
+    const url = "Aksje/HentKunder";
+    $.get(url, function(data) {
+        if (data.length > 0) {
+            for (i = 0; i < data.length; i++) {
+                select.innerHTML +=
+                `
+                <option value="${data[i].kId}">${data[i].kNavn}</option>
+                `;
+            }
+            kundeArr = data;
+            if (localStorage.length > 0) {
+                profil.style.display="block";
+                select.selectedIndex = localStorage.getItem('selectedIndex');
+                rolle.innerHTML = kundeArr[select.selectedIndex-1].rolle;
+                balance.innerHTML = kundeArr[select.selectedIndex-1].balance.toLocaleString();
+                profil.innerHTML = 
+                `
+                <a href="endre.html?id=${localStorage.getItem('kId')}">Profile</a>
+                `
+            }
+            select.selectedIndex = localStorage.getItem('selectedIndex');
+        } else {
+            profil.style.display = "none";
+                select.selectedIndex = 0;
+        }
+    });
+}
+
+
+select.onchange = function change() {
+    profil.style.display = "block";
+    for (i = 0; i < kundeArr.length; i++) {
+        if (select[select.selectedIndex].value == kundeArr[i].kId) {
+            rolle.innerHTML = kundeArr[i].rolle;
+            balance.innerHTML = kundeArr[i].balance.toLocaleString();
+            localStorage.setItem('kId', `${kundeArr[i].kId}`);
+            localStorage.setItem('navn', `${kundeArr[i].kNavn}`);
+            localStorage.setItem('rolle', `${kundeArr[i].rolle}`);
+            localStorage.setItem('balance', `${kundeArr[i].balance}`);
+            localStorage.setItem('selectedIndex', `${select.selectedIndex}`);
+            profil.innerHTML = 
+            `
+            <a href="endre.html?id=${kundeArr[i].kId}">Profile</a>
+            `
+        }
+    }
+
+}
+
+fetch('https://twelve-data1.p.rapidapi.com/stocks?exchange=NASDAQ&format=json',options)
   .then((response) => response.json())
   .then((data) => LagreData(data));
 
-let cryptoCount = 12;
-
+let aksjeView = 12;
 function LagreData(aksjer) {
     const url = "Aksje/HentAlle";
-    $.get(url, function(data) {
-        if (data.length > 0 && data.length == cryptoCount) {
-            let formaterPrise = formaterPriser(data)
-            formaterData(formaterPrise);
-        } else {            
-            let temp;
-            for (i = 0; i < aksjer.length; i++) {
-                for (j = 0; j < aksjer.length; j++) {
-                    if (aksjer[i].current_price > aksjer[j].current_price) {
-                        temp = aksjer[i];
-                        aksjer[i] = aksjer[j];
-                        aksjer[j] = temp;
-                    }
-                }
-            }
+    $.get(url, async function(data) {
+        if (data.length > 0 && data.length == aksjeView) {
+            formaterData(data);
+        } else { 
+            let temp = 0;
             let sendAksje = [];
-            for (i = 0; i < cryptoCount; i++) {
-                let aksje = {
-                    id: i+1,
-                    symbol: aksjer[i].symbol.toUpperCase(),
-                    aksjenavn: aksjer[i].name,
-                    pris: Math.round(aksjer[i].current_price),
-                    stock: Math.round(aksjer[i].circulating_supply),
-                    image: aksjer[i].image
-                };                
-                sendAksje[i] = aksje;
-                const url = "Aksje/Lagre";
-                $.post(url, sendAksje[i], function (OK) {
-                    if (OK) {
-                        formaterData(sendAksje);
+            for (i = 0; i < aksjeView; i++) {
+                let boolLogo = true;
+                let tempNum;
+                let getLogo;
+                let getPrices;
+                while (boolLogo) {
+                    const prices = await fetch(`https://twelve-data1.p.rapidapi.com/price?symbol=${aksjer.data[temp].symbol}&format=json&outputsize=30`, options)
+                    getPrices = await prices.json();
+                    const logo = await fetch(`https://twelve-data1.p.rapidapi.com/logo?symbol=${aksjer.data[temp].symbol}`, options)
+                    getLogo = await logo.json();
+                    
+                    if (temp == 8 || temp == 9)  {
+                        tempNum = temp;
+                        temp = tempNum + i + Math.floor(Math.random()*9+10);
+                        const prices = await fetch(`https://twelve-data1.p.rapidapi.com/price?symbol=${aksjer.data[temp].symbol}&format=json&outputsize=30`, options)
+                        getPrices = await prices.json();
+                        const logo = await fetch(`https://twelve-data1.p.rapidapi.com/logo?symbol=${aksjer.data[temp].symbol}`, options)
+                        getLogo = await logo.json();
+                        temp = tempNum
                     }
-                    else {
-                        $("#feil").html("Feil i db - prøv igjen senere");
+
+                    if (aksjer.data[temp].symbol != 'AAME' && aksjer.data[temp].symbol != 'AAOI' && aksjer.data[temp].symbol != 'ABGI') {
+                        if (getLogo.url != '') {
+                            let aksje = {
+                                id: temp,
+                                symbol: aksjer.data[temp].symbol,
+                                aksjenavn: aksjer.data[temp].name,
+                                exchange: aksjer.data[temp].exchange,
+                                pris: Math.round(getPrices.price),
+                                image: getLogo.url
+                            };                
+                            sendAksje[i] = aksje;
+                            const url = "Aksje/Lagre";
+                            $.post(url, sendAksje[i], function (OK) {
+                                if (OK) {
+                                    formaterData(sendAksje);
+                                }
+                                else {
+                                    $("#feil").html("Feil i db - prøv igjen senere");
+                                }
+                            });
+                            boolLogo = false;
+                        }
                     }
-                });
+                    temp++;
+                }
             }
             formaterData(sendAksje);
         }
@@ -58,19 +140,16 @@ function formaterData(aksjer) {
                 <img src="${aksjer[i].image}" class="coinImg">
                 <div class="coin-infos">
                     <div class="cont">
-                        <p>Coin: <span class="coin">${aksjer[i].aksjenavn}</span></p>
-                        <p>Symbol: <span class="symbol">${aksjer[i].symbol}</span></p>
+                        <p>Exchange: <span class="coin">${aksjer[i].exchange}</span></p>
+                        <p>Name: <span class="coin">${aksjer[i].aksjenavn}</span></p>
+                        <p>Symbol: <span class="coin">${aksjer[i].symbol}</span></p>
                         <p>Price: <span class="price">$${aksjer[i].pris}</span></p>
-                        <p>Supply: <span class="circulatingSupply">${aksjer[i].stock}</span></p>
                     </div>
                 </div>
 
                 <div class="coin-button">
                     <div class="button-vMore">
                         <button value="${aksjer[i].id}" onclick='hentEn(${aksjer[i].id})' class="vMore" id="vMore">View More</button>
-                    </div>
-                    <div class="button-purchase">
-                        <button value="${aksjer[i].id}" class="purchase" id="purchase">Purchase</button>
                     </div>
                 </div>
             </div>
@@ -81,19 +160,4 @@ function formaterData(aksjer) {
 
 function hentEn(id) {
     window.location.href=`hentEn.html?id=${id}`;
-}
-
-
-function formaterPriser(priser) {
-    for (i = 0; i < priser.length; i++) {
-        for (j = 0; j < priser.length; j++) {
-            if (priser[i].pris > priser[j].pris) {
-                temp = priser[i];
-                priser[i] = priser[j];
-                priser[j] = temp;
-            }
-        }
-    }
-
-    return priser;
 }

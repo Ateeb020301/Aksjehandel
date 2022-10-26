@@ -1,0 +1,115 @@
+@media only screen and (max-width: 1507px) {
+    .status-coin h3 {
+        font-size: 14px;
+    }
+}
+
+@media only screen and (max-width: 1435px) {
+    .status-coin-info {
+        flex-direction: column;
+    }
+
+    .chart {
+        margin: 10px 0 0 0;
+    }
+    .status-info .status-coin:nth-child(even) {
+        margin: 0 10px 10px 10px;
+        margin-bottom: 10px;
+    }
+
+    .status-coin h3 {
+        font-size: 12px;
+    }
+    
+    .db-info-about .pTitle {
+        font-size: 14px;
+    }
+    
+    .db-info-about .pValue, .db-info-about .pPercent {
+        font-size: 12px;
+    }
+
+    .db-info-coin, .db-info .converter {
+        margin: 20px 20px 20px 40px;
+    }   
+}
+
+@media only screen and (max-width: 1160px) {
+    .status-coin h3 {
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 810px) {
+    .status-info { 
+        flex-direction: row;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+    }
+
+    .db-info-coin {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .db-info-about {
+        align-items: flex-start;
+    }
+
+    .db-info-about:nth-child(even) {
+        border:none;
+        margin: 15px 0px 15px 0px;
+        padding: 15px 0px 15px 0px;
+        border-top-style: solid;
+        border-bottom-style: solid;
+        border-width: 1px;
+    }
+
+    .db-info-about:last-child {
+        margin: 0px;
+        border: none;
+    }
+
+    .db-info-about p {
+        padding-right: 20px;
+    }
+
+    .status-coin {
+        padding: 10px;
+        flex: 1 1 auto
+
+    }
+    .status-coin h3 {
+        font-size: 14px;
+    }
+
+    .status-coin p {
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 630px) {
+    .status-info { 
+        flex-direction: column;
+    }
+
+    .status-coin {
+        margin: 10px;
+        padding: 10px;
+    }
+    
+    .status-coin h3 {
+        font-size: 14px;
+    }
+
+    .status-coin p {
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+
+    .inpCryptoText {
+        display: none;
+    }
+}

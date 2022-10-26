@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">  
+</head>
+<body>
+    <div class="main-container">
+        <div class="container-nav">
+            <div class="nav-title">
+                <div class="nav-logo">
+                    <img src="images/logo.png" height="75px" width="75px">
+                </div>
+            </div>
+            <div class="nav">
+                <div class="nav-item">
+                    <div class="icon">
+                        <i class="fa fa-home" aria-hidden="true"></i>
+                    </div>
+                    <div class="txt">
+                        <a href="index.html">Dashboard</a>
+                    </div>
+                </div>
+
+                <div class="nav-item">
+                    <div class="icon">
+                        <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+                    </div>
+                    <div class="txt">
+                        <a href="kunder.html">Se Kunder</a>
+                    </div>
+                </div>
+                <div class="nav-item">
+                    <div class="icon">
+                        <i class="fa fa-credit-card" aria-hidden="true"></i>
+                    </div>
+                    <div class="txt">
+                        <a href="bestillinger.html">Mine Bestillinger</a>
+                    </div>
+                </div>
+                <div class="nav-item">
+                    <div class="icon">
+                        <i class="fa fa-times" aria-hidden="true"></i>
+                    </div>
+                    <div class="txt">
+                        <a href="admin.html">Admin Panel</a>
+                    </div>
+                </div>
+            <div class="nav-footer">
+                <a href="registrerKunde.html" class="active">Registrer Kunde</a>
+            </div>
+        </div>
+
+        <div class="container-body">
+            <div class="body-header">
+                <div class="body-person">
+                    
+                </div>
+            </div>
+            <div class="body-cont">
+                <div class="body-dashboard">
+                    <div class="dashbord-txt">
+                        <h2>Registrer Kunde</h2>
+                    </div>
+                </div>
+
+                <div class="registrerForm">
+                    <form action="" id="myForm">
+                        <h3>Registrer kunde</h3>
+                        <div class="form">
+                            <div>
+                                <div class="icon">
+                                  <i class="fa fa-user" aria-hidden="true"></i>
+                                </div>
+                                <div>
+                                    <input type="text" id="inpNavn" placeholder="Navn" required>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="icon">
+                                    <i class="fa fa-phone" aria-hidden="true"></i>
+                                </div>
+                                <div>
+                                    <input type="text" id="inpTlf" placeholder="45418387" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" pattern="[0-9]{8}" required>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="icon">
+                                    <i class="fa fa-usd" aria-hidden="true"></i>
+                                </div>
+                                <div>
+                                    <select name="cash" id="cash" required>
+                                        <option value="">Choose starting balance</option>
+                                        <option value="1000">$1,000</option>
+                                        <option value="5000">$5,000</option>
+                                        <option value="25000">$25,000</option>
+                                        <option value="100000">$100,000</option>
+                                      </select>
+                                </div>
+                            </div>
+                            <div>    
+                                <div class="iconRadio">
+                                    <p>Admin</p>
+                                    <input type="radio" id="admin" name="rolle" value="Admin" required>
+                                </div>
+                                <div class="iconRadio">
+                                    <p>Member</p>
+                                    <input type="radio" id="member" name="rolle" value="Member" required>
+                                </div>
+                            </div>
+                            <div>
+                                <div>
+                                    <input type="submit" value="Registrer Kunde"">
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/lagre.js"></script>
+</body>
+</html>

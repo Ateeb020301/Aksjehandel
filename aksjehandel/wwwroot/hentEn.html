@@ -3,27 +3,29 @@
 <head>
     <meta charset="utf-8" />
     <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="js/hentEn.js"></script>  
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/compatibility.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">  
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    
 </head>
 <body>
     <div class="main-container">
         <div class="container-nav">
             <div class="nav-title">
                 <div class="nav-logo">
-                    <h2>LOGO</h2>
+                    <img src="images/logo.png" height="75px" width="75px">
                 </div>
             </div>
             <div class="nav">
                 <div class="nav-item">
                     <div class="icon">
-                        <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+                        <i class="fa fa-home" aria-hidden="true"></i>
                     </div>
                     <div class="txt">
-                        <span>Dashboard</span>
+                        <a href="index.html">Dashboard</a>
                     </div>
                 </div>
 
@@ -32,56 +34,43 @@
                         <i class="fa fa-user-circle-o" aria-hidden="true"></i>
                     </div>
                     <div class="txt">
-                        <span>Se Kunder</span>
+                        <a href="kunder.html">Se Kunder</a>
                     </div>
                 </div>
                 <div class="nav-item">
                     <div class="icon">
-                        <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+                        <i class="fa fa-credit-card" aria-hidden="true"></i>
                     </div>
                     <div class="txt">
-                        <span>Crypto Currency</span>
+                        <a href="bestillinger.html">Mine Bestillinger</a>
                     </div>
                 </div>
                 <div class="nav-item">
                     <div class="icon">
-                        <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+                        <i class="fa fa-times" aria-hidden="true"></i>
                     </div>
                     <div class="txt">
-                        <span>Admin Panel</span>
-                    </div>
-                </div>
-                <div class="nav-item">
-                    <div class="icon">
-                        <i class="fa fa-user-circle-o" aria-hidden="true"></i>
-                    </div>
-                    <div class="txt">
-                        <span>Dashboard</span>
+                        <a href="admin.html">Admin Panel</a>
                     </div>
                 </div>
             </div>
             <div class="nav-footer">
-                <div class="nav-footer-info">
-                    <h3>Trading 4 Profits</h3>
-                </div>
+                <a href="registrerKunde.html">Registrer Kunde</a>
             </div>
         </div>
 
         <div class="container-body">
             <div class="body-header">
-                <div class="body-addkunde">
-                        <button class="">Legg Kunde</button>
-                </div>
                 <div class="body-person">
                     <div class="info">
                         <select id="name">
-                            <option>Mohammad</option>
+                            <option selected disabled value="">Velg Kunde</option>
                         </select>
                         <p id="role">
-                            Member
+                            
                         </p>
                         <p id="profil">
-                            <button href="#">Profile</button>
+                            
                         </p>
                     </div>
                     <div class="image">
@@ -95,7 +84,7 @@
                         <a style="color: black" href="index.html"><i style="margin-right: 10px;" class="fa fa-chevron-left" aria-hidden="true"></i></a>
                     </div>
                     <div class="accountBalance">
-                        <h4>Account Balance: <span class="balance">$1,000</span></h4>
+                        <h4>Account Balance: $<span class="balance">0</span></h4>
                     </div>
                 </div>
 
@@ -105,5 +94,9 @@
             </div>
         </div>
     </div>
+    
+    <script src="js/hentEn.js"></script>
+    
+
 </body>
 </html>

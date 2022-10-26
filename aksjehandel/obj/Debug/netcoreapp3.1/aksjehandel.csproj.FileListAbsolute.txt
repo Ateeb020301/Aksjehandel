@@ -184,3 +184,5 @@ C:\Users\Moham\Documents\GitHub\aksjehandel\aksjehandel\obj\Debug\netcoreapp3.1\
 C:\Users\Moham\Documents\GitHub\aksjehandel\aksjehandel\obj\Debug\netcoreapp3.1\aksjehandel.genruntimeconfig.cache
 C:\Users\Moham\Documents\GitHub\aksjehandel\aksjehandel\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
 F:\Web Applikasjoner\aksjehandel\aksjehandel\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+F:\Web Applikasjoner\aksjehandel\aksjehandel\bin\Debug\netcoreapp3.1\Castle.Core.dll
+F:\Web Applikasjoner\aksjehandel\aksjehandel\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Proxies.dll

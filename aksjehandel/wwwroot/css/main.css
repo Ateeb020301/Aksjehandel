@@ -18,10 +18,9 @@ body {
     background-color: var(--background);
 }
 .container-nav {
-    width: 39vh;
+    flex-basis: 15%;
     display: flex;
     flex-direction: column;
-    flex-basis: 18%;
     height: 100vh;
     border-right-style: solid;
     border-width: 4px;
@@ -71,31 +70,24 @@ body {
 
 .nav-footer {
     background-color: var(--background);
-}
-
-.nav-footer-info {
-    transition: 0.5s;
-    font-size: 12px;
     display: flex;
     justify-content: center;
-    align-items: center;
-    background-color: var(--primary-hover);
-    font-weight: 900;
+}
+
+.nav-footer a {
+    text-decoration: none;
     color: white;
-    border-radius: 5px 5px 0 0;
-    height: 5vh;
-    margin: 0 5px 0 5px;
+    padding: 15px;
+    background-color: var(--primary);
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    text-align: center;
+    width: 65%;
 }
 
-.nav-footer-info h3 {
-    padding: 10px;
-}
-
-.nav-footer-info:hover {
-    transition: 0.5s;
-    border-radius: 5px;
-    height: 10vh;
-    margin: 15px;
+.nav-footer a:hover {
+    opacity: .9;
+    cursor: pointer;
 }
 
 /*------------NAV END-----------*/
@@ -110,13 +102,13 @@ body {
 .container-body {
     display: flex;
     flex-direction: column;
-    flex-basis: 82%;
+    flex-basis: 100%;
     height: 100vh;
 }
 
 .body-header {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     border-bottom-style: solid;
     border-color: var(--title);
     border-width: 1px;
@@ -142,7 +134,7 @@ body {
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin: 20px;
+    margin: 20px 40px 20px 20px;
     text-align: center;
 }
 
@@ -161,18 +153,15 @@ body {
     font-size: 15px;
 }
 
-#profil button {
+#profil a {
     color:#79797a;
+    text-decoration: none;
     opacity: 0.7;
     font-size: 12px;
-    background-color: none;
-    border-bottom: solid;
-    border: none;
-    outline: none;
     text-decoration: underline;
 }
 
-#profil button:hover {
+#profil a:hover {
     cursor: pointer;
 }
 
@@ -207,6 +196,7 @@ body {
 .body-coins {
     margin: 0px 10px 0px 25px;
     display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
     flex-basis: 100%;
 }
@@ -226,7 +216,10 @@ body {
 .coin-info {
     display: flex;
     flex-direction: column;
-
+    flex-basis: 50%;
+    align-items: center;
+    justify-content: space-between;
+    flex: 1;
 }
 
 .cont p {
@@ -234,22 +227,16 @@ body {
 }
 
 .coinImg {
-    height: 75px;
-    width: 75px;
-    border-radius: 100%;
+    width: 30%;
+    height: 35px;
 }
-
-
 
 .coin-infos .cont {
     padding: 5px;
-    margin: 10px;
-}
-
-.coin-button {
+    text-align: center;
     display: flex;
-    flex-direction: row;
-    justify-content: center;
+    flex-direction: column;
+    flex: 1;
 }
 
 #purchase, #vMore {
@@ -257,21 +244,29 @@ body {
     padding: 15px;
     outline: none;
     border: none;
-    margin: 1px;
+}
+
+.coin-button {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.button-vMore {
+    display: flex;
+    
 }
 
 #vMore {
     background-color:var(--primary);
     color: white;
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
+    border-radius: 5px;
+    flex: 1;
 }
 
-#purchase {
-    background-color: green;
-    color: white;
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
+#vMore:hover {
+    cursor: pointer;
+    background-color: var(--primary-hover);
 }
 
 /*------------END BODY----------*/
@@ -280,11 +275,13 @@ body {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    flex-basis: 100%;
+    flex: 1;
+    min-height: 0vh;
 }
 
 .status-coin {
     display: flex;
+    flex-wrap: wrap;
     flex-direction: column;
     margin-bottom: 10px;
     flex: 1;
@@ -352,37 +349,33 @@ body {
 
 }
 
-.status-footer-info {
-    height: 15vh;
-    margin-top: 10px;
-    flex: 1;
-    border-radius: 10px;
-    background-color: white;
-}
-
 .db-info {
     flex:1;
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
     margin-right: 10px;
     border-radius: 10px;
     background-color: white;
 }
 
 .db-header-coin {
-    display: flex;
+    display: flex;  
     align-items: center;
     margin: 20px 20px 20px 40px;
 }
 
+.db-header-coin h3 {
+    font-weight: 700;
+}
+
 .db-header-coin img {
-    margin-right: 15px;
+    margin-right: 20px;
 }
 
 .db-info .converter {
     margin: 20px;
     display: flex;
+    justify-content: center;
 }
 
 .db-info input[type="number"] {
@@ -401,6 +394,7 @@ body {
     margin: 0px 0px 16px;
     border: 1px solid var(--border-color);
     border-radius: 16px;
+    flex: 1;
 }
 
 .firstInp {
@@ -471,6 +465,10 @@ body {
     margin-inline-end: 12px;
 }
 
+.currencyImg:first-child {
+    border-radius: 0px;
+}
+
 .inpCryptoText {
     box-sizing: border-box;
     margin: 0px;
@@ -533,5 +531,224 @@ body {
 }
 
 .status-coin h3 {
+    font-size: 16px;
+}
+
+.db-info-about .pTitle {
+    font-size: 14px;
+}
+
+.db-info-about .pValue {
+    font-size: 13px;
+}
+
+
+.db-info-about .pPercent {
     font-size: 11px;
+}
+
+
+/*Registrer form*/
+.registrerForm {
+    margin: 25px;
+    border-radius: 10px;
+    display: flex;
+    height: 70vh;
+    background-color: white;
+    justify-content: center;
+    align-items: center;
+}
+
+.form div {
+    display: flex;
+    margin: 0 0 5px 0px;
+    flex: 1;
+}
+
+.form {
+    margin-top: 10px;
+}
+
+#name {
+    text-align: center;
+}
+
+.form .icon {
+    font-size: 18px;
+    background-color: var(--primary);
+    padding: 10px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.iconRadio {
+    border-style: solid;
+    color: white;
+    border-radius: 5px;
+    justify-content: space-between;
+    background-color: var(--primary);
+    padding: 15px;
+    font-size: 14px;
+}
+
+.form div input[type="text"], .form div input[type="number"], .form div input[type="submit"], .form div select {
+    padding: 10px;
+    border: none;
+    border-bottom-style: solid;
+    border-top-style: solid;
+    border-right-style: solid;
+    outline: none;
+    border-width: 1px;
+    border-radius: 0 3px 3px 0px;
+    border-color: var(--primary);
+    flex: 1;
+}
+
+.form div input[type="submit"] {
+    background-color: var(--primary);
+    border-radius: 5px;
+    color: white;
+}
+
+.cont-purchase {
+    margin: 20px;
+    border-radius: 10px;
+    min-height: 10vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.cont-purchase #formPurchase {
+    display: flex;
+    align-items: center;
+    border-color: black;
+    flex-basis: 75%;
+}
+
+.cont-purchase #formPurchase div {
+    display: flex;
+    align-items: center;
+}
+
+#formPurchase div:nth-child(even) {
+    flex-basis: 50%;
+    border-top-style: solid;
+    border-bottom-style: solid;
+    border-width: 1px;
+    border-color: var(--title);
+}
+
+#formPurchase div:first-child {
+    flex-basis: 25%;
+    border-top-style: solid;
+    border-bottom-style: solid;
+    border-left-style: solid;
+    border-width: 1px;
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+    border-color: var(--title);
+}
+
+#formPurchase div:last-child {
+    flex-basis: 25%;
+    border-top-style: solid;
+    border-bottom-style: solid;
+    border-right-style: solid;
+    border-width: 1px;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+    border-color: var(--title);
+}
+
+#formPurchase label {
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    padding: 30px 60px 27px 60px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    text-align: center;
+    flex: 1;
+}
+
+#formPurchase input[type="submit"] {
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    padding: 30px 60px 30px 60px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    flex: 1;
+}
+
+#formPurchase input[type="submit"]:hover {
+    background-color: var(--primary-hover);
+    cursor: pointer;
+}
+
+#formPurchase input[type="number"] {
+    padding: 31px 15px 30px 60px;
+    background-color: white;
+    border-color: var(--primary);
+    text-align: right;
+    flex: 1;
+    font-weight: 700;
+    font-size: 12px;
+}
+
+#formPurchase input[type="number"]::-webkit-inner-spin-button,
+#formPurchase input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+.txt a {
+    text-decoration: none;
+    color: #79797a;
+}
+
+.txt a:hover {
+    color: var(--primary);
+}
+
+.active {
+    font-weight: 550;
+}
+
+
+
+@media screen and (max-width: 750px) {
+    .body-coins {
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 580px ) {
+    .body-coins {
+        flex-direction: column;
+    }
+    .coin-button {
+        flex-direction: column;
+    }
+
+    .coin-button #purchase {
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+        width: 100%;
+    }
+
+    .coin-button #vMore {
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+        width: 100%;
+    }
+
+    .body-dashboard {
+        flex-direction: column;
+        justify-content: center;
+    }
 }

@@ -1,95 +1,142 @@
+const options = {
+	method: 'GET',
+	headers: {
+		'X-RapidAPI-Key': '65057d1335msh82e2fdcf14b3731p1e4bcfjsn149c5de9ee62',
+		'X-RapidAPI-Host': 'twelve-data1.p.rapidapi.com'
+	}
+};
 let dbAksje;
 let funnetAksje;
 const id = window.location.search.substring(1);
+let info = document.getElementsByClassName("info")[0];
+let balance = document.getElementsByClassName("balance")[0];
+let select = document.getElementById("name");
+let rolle = document.getElementById("role");
+let profil = document.getElementById("profil");
+
 window.onload = function() {
+    const url1 = "Aksje/HentKunder";
+    $.get(url1, function(data) {
+        if (data.length > 0) {
+            for (i = 0; i < data.length; i++) {
+                select.innerHTML +=
+                `
+                <option value="${data[i].kId}">${data[i].kNavn}</option>
+                `;
+            }
+            kundeArr = data;
+            if (localStorage.length > 0) {
+                profil.style.display="block";
+                select.selectedIndex = localStorage.getItem('selectedIndex');
+                rolle.innerHTML = kundeArr[localStorage.getItem('selectedIndex')-1].rolle;
+                balance.innerHTML = kundeArr[localStorage.getItem('selectedIndex')-1].balance.toLocaleString();
+                profil.innerHTML = 
+                `
+                <a href="endre.html?id=${localStorage.getItem('kId')}">Profile</a>
+                `
+            }
+            select.selectedIndex = localStorage.getItem('selectedIndex');
+        } else {
+            profil.style.display = "none";
+        }
+    });
+    
+
     const url = "Aksje/HentAksje?" + id;
     $.get(url, function(aksje) {
       dbAksje = aksje;
-      fetch('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false&price_change_percentage=1h%2C24h%2C7d')
-      .then((response) => response.json())
-      .then((data) => createHTML(data));
+      fetch(`https://twelve-data1.p.rapidapi.com/quote?symbol=${dbAksje.symbol}&interval=1day&outputsize=30&format=json`, options)
+      .then(response => response.json())
+      .then(response => createHTML(response));
     });
 }
 
-function createHTML(aksjer) {
-  for (i = 0; i < aksjer.length; i++) {
-    if (dbAksje.symbol.toLowerCase() == aksjer[i].symbol) {
-      funnetAksje = aksjer[i];
+
+
+select.onchange = function test() {
+    profil.style.display = "block";
+    for (i = 0; i < kundeArr.length; i++) {
+        if (select[select.selectedIndex].value == kundeArr[i].kId) {
+            rolle.innerHTML = kundeArr[i].rolle;
+            balance.innerHTML = kundeArr[i].balance.toLocaleString();
+            localStorage.setItem('kId', `${kundeArr[i].kId}`)
+            localStorage.setItem('navn', `${kundeArr[i].kNavn}`)
+            localStorage.setItem('rolle', `${kundeArr[i].rolle}`)
+            localStorage.setItem('balance', `${kundeArr[i].balance}`)
+            localStorage.setItem('selectedIndex', `${select.selectedIndex}`)
+            profil.innerHTML = 
+            `
+            <a href="endre.html?id=${kundeArr[i].kId}">Profile</a>
+            `
+        }
     }
-  }
-  console.log(funnetAksje)
-  fetch(`https://api.coingecko.com/api/v3/coins/${funnetAksje.id}/market_chart?vs_currency=usd&days=30&interval=daily`)
-  .then((response) => response.json())
-  .then((data) => createChart(data));
+    
+}
 
-  let diulatedPercentage = (funnetAksje.fully_diluted_valuation)/(funnetAksje.market_cap);
-  let diulated = funnetAksje.fully_diluted_valuation;
-  if (funnetAksje.fully_diluted_valuation == null) {
-      diulated = 0;
-  }
-  let colorDiulated,colorMarket,updownDiulated, updownMarket;
-  if (funnetAksje.market_cap_change_percentage_24h < 0) {
-      colorMarket = 'red';
-      updownMarket = 'down';
-  } else {
-      colorMarket = 'green';
-      updownMarket = 'up';
-  }
 
-  if (diulatedPercentage < 0) {
-      colorDiulated = 'red';
-      updownDiulated = 'down';
-  } else {
-      colorDiulated = 'green';
-      updownDiulated = 'up';
-  }
+async function createHTML(aksjer) {
+    const timeSeries = await fetch(`https://twelve-data1.p.rapidapi.com/time_series?symbol=${aksjer.symbol}&interval=1day&outputsize=30&format=json`, options)
+    getTimeseries = await timeSeries.json();
+    let highColor, lowColor,updownLow, updownHigh;
+    if (parseFloat(aksjer.fifty_two_week.low_change_percent) > 0) {
+        lowColor = 'green';
+        updownLow = 'up';
+    } else {
+        lowColor = 'red';
+        updownLow = 'down';
+    }
+    
+    if (parseFloat(aksjer.fifty_two_week.high_change_percent) > 0) {
+        highColor = 'green';
+        updownHigh = 'up';
+    } else {
+        highColor = 'red';
+        updownHigh = 'down';
+    }
+    
 
-  let bodyCoins = document.getElementsByClassName("body-coins")[0];
-  bodyCoins.innerHTML = 
+
+    let bodyCoins = document.getElementsByClassName("body-coins")[0];
+    bodyCoins.innerHTML = 
     `
       <div class="status-info">
         <div class="status-coin">
-            <h3>Highest (24hr): <span>$ ${funnetAksje.high_24h.toLocaleString(undefined, {maximumFractionDigits: 2})}</span></h3>
-            <p>Lowest (24hr): <span>$ ${funnetAksje.low_24h.toLocaleString(undefined, {maximumFractionDigits: 2})}</span></p>
+            <h3>Highest (24hr): <span>$ ${parseFloat(aksjer.high).toLocaleString(undefined, {minimumFractionDigits: 2,maximumFractionDigits: 2})}</span></h3>
+            <p>Lowest (24hr): <span>$ ${parseFloat(aksjer.low).toLocaleString(undefined, {minimumFractionDigits: 2,maximumFractionDigits: 2})}</span></p>
         </div>
         <div class="status-coin">
-            <h3>Value: <span>$ ${dbAksje.pris.toLocaleString(undefined, {maximumFractionDigits: 2})}</span></h3>
-            <p>Value Change (24hr): <span>$ ${funnetAksje.price_change_24h.toLocaleString(undefined, {maximumFractionDigits: 2})}</span></p>
+            <h3>Value: <span>$ ${parseFloat(dbAksje.pris).toLocaleString(undefined, {minimumFractionDigits: 2,maximumFractionDigits: 2})}</span></h3>
+            <p>Value Change (24hr): <span>$ ${parseFloat(aksjer.change).toLocaleString(undefined, {minimumFractionDigits: 2,maximumFractionDigits: 2})}</span></p>
         </div>
         <div class="status-coin">
-            <h3>Market Cap:<span></span>$ ${funnetAksje.market_cap.toLocaleString(undefined, {maximumFractionDigits: 2})}</h3>
-            <p>Market Cap Change: <span>$ ${funnetAksje.market_cap_change_24h.toLocaleString(undefined, {maximumFractionDigits: 2})}</span></p>
+            <h3>Open Last 24hr : <span>$ ${parseFloat(aksjer.open).toLocaleString(undefined, {minimumFractionDigits: 2,maximumFractionDigits: 2})}</span></h3>
+            <p>Closed Last 24hr: <span>$ ${parseFloat(aksjer.close).toLocaleString(undefined, {minimumFractionDigits: 2,maximumFractionDigits: 2})}</span></p>
         </div>
         <div class="status-coin">
-            <h3>Max supply: <span>${Math.round(funnetAksje.total_supply).toLocaleString(undefined, {maximumFractionDigits: 2})}</span></h3>
-            <p>Circulating supply:${Math.round(funnetAksje.circulating_supply).toLocaleString(undefined, {maximumFractionDigits: 2})}</p>
-        </div>
-        <div class="status-coin">
-            <h3>Last Updated:</h3>
-            <p>${funnetAksje.last_updated}</p>
+            <h3>Last Updated: </h3>
+            <p>${aksjer.datetime}</p>
         </div>
       </div>
 
       <div class="status-coin-info">
         <div class="db-info">
             <div class="db-header-coin">
-                <img style="border-radius: 100%;" src="${dbAksje.image}" height="50px" width="50px">
                 <h3>${dbAksje.aksjenavn}</h3>
             </div>
             <div class="db-info-coin">
                 <div class="db-info-about">
-                    <p style="font-size: 11px; font-weight: 700; color: gray;">Market Cap</p>
-                    <p style="font-weight: 700; font-size: 12px">$ ${funnetAksje.market_cap.toLocaleString(undefined, {maximumFractionDigits: 2})}</p>
-                    <p style="color: ${colorMarket};font-size: 11px; font-weight: 700"><i style="margin-right: 5px; font-size: 14px;"class="fa fa-caret-${updownMarket}" aria-hidden="true"></i></i>${funnetAksje.market_cap_change_percentage_24h.toLocaleString(undefined, {maximumFractionDigits: 2})}%</p> 
+                    <p class="pTitle" style="font-weight: 700; color: gray;">Last 52 weeks High</p>
+                    <p class="pValue" style="font-weight: 700;">$ ${parseFloat(aksjer.fifty_two_week.high).toLocaleString(undefined, {minimumFractionDigits: 2,maximumFractionDigits: 2})}</p>
+                    <p class="pPercent" style="color: ${highColor};font-weight: 700"><i style="margin-right: 5px; font-size: 14px;"class="fa fa-caret-${updownHigh}" aria-hidden="true"></i></i>${parseFloat(aksjer.fifty_two_week.high_change_percent).toLocaleString(undefined, {minimumFractionDigits: 2,maximumFractionDigits: 2})}%</p> 
+                 </div>
+                <div class="db-info-about">
+                    <p class="pTitle" style="font-weight: 700; color: gray;">Last 52 weeks Low</p>
+                    <p class="pValue" style="font-weight: 700;">$ ${parseFloat(aksjer.fifty_two_week.low).toLocaleString(undefined, {minimumFractionDigits: 2,maximumFractionDigits: 2})}</p>
+                    <p class="pPercent" style="color: ${lowColor}; font-weight: 700"><i style="margin-right: 5px; font-size: 14px;"class="fa fa-caret-${updownLow}" aria-hidden="true"></i></i>${parseFloat(aksjer.fifty_two_week.low_change_percent).toLocaleString(undefined, {minimumFractionDigits: 2,maximumFractionDigits: 2})}%</p> 
                 </div>
                 <div class="db-info-about">
-                    <p style="font-size: 11px; font-weight: 700; color: gray;">Diluted Market Cap</p>
-                    <p style="font-weight: 700; font-size: 12px">$ ${funnetAksje.market_cap.toLocaleString(undefined, {maximumFractionDigits: 2})}</p>
-                    <p style="color: ${colorDiulated};font-size: 11px; font-weight: 700"><i style="margin-right: 5px; font-size: 14px;"class="fa fa-caret-${updownDiulated}" aria-hidden="true"></i></i>${diulatedPercentage.toLocaleString(undefined, {maximumFractionDigits: 2})}%</p> 
-                </div>
-                <div class="db-info-about">
-                    <p style="font-size: 11px; font-weight: 700; color: gray;">Volume</p>
-                    <p style="font-weight: 700; font-size: 12px">$ ${funnetAksje.total_volume.toLocaleString(undefined, {maximumFractionDigits: 2})}</p>
+                    <p class="pTitle" style="font-weight: 700; color: gray;">Range (Low to High)</p>
+                    <p class="pValue" style="font-weight: 700;">$ ${parseFloat(aksjer.fifty_two_week.low).toLocaleString(undefined, {minimumFractionDigits: 2,maximumFractionDigits: 2})} - ${parseFloat(aksjer.fifty_two_week.high).toLocaleString(undefined, {minimumFractionDigits: 2,maximumFractionDigits: 2})}</p>
                 </div>
             </div>
             <div class="converter">
@@ -100,8 +147,7 @@ function createHTML(aksjer) {
                                 <div class="inpCont" style="order: 1;">
                                     <img src="${dbAksje.image}" alt="" class="currencyImg">
                                     <div class="inpCryptoText">
-                                        <p class="POSot">${dbAksje.symbol.toUpperCase()}</p>
-                                        <p class="converter-item-name" color="text" >${dbAksje.aksjenavn}</p>
+                                        <p class="POSot">${dbAksje.symbol}</p>
                                     </div>
                                     <div class="inpCryptoCont">
                                         <input oninput="calcPrice()" pattern="/^-?d+.?d*$/" placeholder="0" class="inpCrypto">
@@ -122,17 +168,28 @@ function createHTML(aksjer) {
                     </section>
                 </div>
             </div>
+            <div class="cont-purchase">
+                <form action="" id="formPurchase">
+                    <div>
+                        <label for="name">Amount</label>
+                    </div>
+                    <div>
+                        <input type="number" name="amount" class="inpAmount" placeholder="0" required>
+                    </div>
+                    <div>
+                        <input type="submit" class="purchaseBtn" value="Purchase">
+                    </div>
+                </form>
+            </div>
         </div>
         <div class="chart">
-            <div class="chartTxt">
-                <h3>Prices Changes Last 30 days</h3>
-            </div>
             <div class="chart1"> 
-                <canvas id="myChart" style="width:100%;max-width:700px"></canvas>
+                <div id="chartContainer"></div>
             </div>
         </div>
       </div>
     `;
+    createChart(getTimeseries);
 }
 
 function calcPrice() {
@@ -143,40 +200,52 @@ function calcPrice() {
 }
 
 function createChart(chart) {
-    console.log(chart);
     let xValues = [];
-    let yValues = [];
+    let yopenValues = [];
+    let ycloseValues = [];
     let max = 0;
     let min = 999999;
-    for (i = 0; i < chart.prices.length; i++) {
-        if (chart.prices[i][1] > max) {
-            max = chart.prices[i][1];
-        } else if (chart.prices[i][1] < min) {
-            min = chart.prices[i][1];
+    for (i = 0; i < chart.values.length; i++) {
+        if (chart.values[i].high > max) {
+            max = chart.values[i].high;
+        } else if (chart.values[i].low < min) {
+            min = chart.values[i].low;
         }
-        yValues[i] = chart.prices[i][1];
-        xValues[i] = i;
+        yopenValues[i] = chart.values[i].open;
+        ycloseValues[i] = chart.values[i].close;
+        xValues[i] = chart.values[i].datetime;
     }
 
-    
-    new Chart("myChart", {
-      type: "line",
-      data: {
-        labels: xValues,
-        datasets: [{
-          fill: false,
-          lineTension: 0,
-          backgroundColor: "#9568FF",
-          borderColor: "rgba(0,0,255,0.1)",
-          data: yValues
-        }]
+    var options = {
+        series: [{
+        name: 'Open',
+        data: yopenValues
+      }, {
+        name: 'Close',
+        data: ycloseValues
+      }],
+        chart: {
+        height: 350,
+        type: 'area'
       },
-      options: {
-        legend: {display: false},
-        scales: {
-          yAxes: [{ticks: {min: min, max:max*1.02}}],
-        }
-      }
-    });
+      dataLabels: {
+        enabled: false
+      },
+      stroke: {
+        curve: 'smooth'
+      },
+      xaxis: {
+        type: 'datetime',
+        categories: xValues
+      },
+      tooltip: {
+        x: {
+          format: 'dd/MM/yy HH:mm'
+        },
+      },
+      };
+
+      var chart = new ApexCharts(document.querySelector("#chartContainer"), options);
+      chart.render();
 }
 
