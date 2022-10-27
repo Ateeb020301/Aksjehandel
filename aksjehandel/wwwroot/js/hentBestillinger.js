@@ -52,13 +52,17 @@ function hentBestillinger() {
                         <td>$${data[i].aksjer.pris}</td>
                         <td>${data[i].antall}</td>
                         <td>$${(data[i].aksjer.pris)*data[i].antall}</td>
-                        <td><button id="selg" >Selg</button></td>
+                        <td><button onclick="slett(${data[i].bId})" id="selg" >Selg</button></td>
                     </tr>
                     `;
                 }
             }
         } 
     });
+}
+
+function slett(id) {
+    window.location.href=`slettBestilling.html?id=${id}`;
 }
 
 select.onchange = function test() {

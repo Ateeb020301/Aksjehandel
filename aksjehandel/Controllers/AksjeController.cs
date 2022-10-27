@@ -191,5 +191,37 @@ namespace aksjehandel.Controllers
                 return false;
             }
         }
+
+        public async Task<Bestillinger> SlettBestilling(Bestillinger bestillingInn)
+        {
+            try
+            {
+                Bestillinger enBestilling = await _db.Bestillinger.FindAsync(bestillingInn.bId);
+                Console.WriteLine(bestillingInn.bId);
+                var pris = enBestilling.Aksjer.Pris;
+                var saldo = enBestilling.Kunder.balance;
+
+                if (bestillingInn.antall > enBestilling.antall)
+                {
+                    enBestilling.Kunder.balance = (pris * enBestilling.antall) + saldo;
+                    _db.Bestillinger.Remove(enBestilling);
+                } else if (bestillingInn.antall < enBestilling.antall)
+                {
+                    enBestilling.antall -= bestillingInn.antall;
+                    enBestilling.Kunder.balance = (pris * bestillingInn.antall) + saldo;
+                } else
+                {
+                    enBestilling.Kunder.balance = (pris * enBestilling.antall) + saldo;
+                    _db.Bestillinger.Remove(enBestilling);
+                }
+
+                await _db.SaveChangesAsync();
+                return enBestilling;
+            }
+            catch
+            {
+                return null;
+            }
+        }
     }
 }
