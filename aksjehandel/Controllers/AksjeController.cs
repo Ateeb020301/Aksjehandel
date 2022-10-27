@@ -197,11 +197,10 @@ namespace aksjehandel.Controllers
             try
             {
                 Bestillinger enBestilling = await _db.Bestillinger.FindAsync(bestillingInn.bId);
-                Console.WriteLine(bestillingInn.bId);
                 var pris = enBestilling.Aksjer.Pris;
                 var saldo = enBestilling.Kunder.balance;
 
-                if (bestillingInn.antall > enBestilling.antall)
+                if (bestillingInn.antall == enBestilling.antall)
                 {
                     enBestilling.Kunder.balance = (pris * enBestilling.antall) + saldo;
                     _db.Bestillinger.Remove(enBestilling);
@@ -209,10 +208,6 @@ namespace aksjehandel.Controllers
                 {
                     enBestilling.antall -= bestillingInn.antall;
                     enBestilling.Kunder.balance = (pris * bestillingInn.antall) + saldo;
-                } else
-                {
-                    enBestilling.Kunder.balance = (pris * enBestilling.antall) + saldo;
-                    _db.Bestillinger.Remove(enBestilling);
                 }
 
                 await _db.SaveChangesAsync();
@@ -221,6 +216,51 @@ namespace aksjehandel.Controllers
             catch
             {
                 return null;
+            }
+        }
+        public async Task<bool> SlettHeleBestilling(Bestillinger bestillingInn)
+        {
+            try
+            {
+
+                Bestillinger enBestilling = await _db.Bestillinger.FindAsync(bestillingInn.bId);
+                Console.WriteLine(bestillingInn.bId);
+                var pris = enBestilling.Aksjer.Pris;
+                var saldo = enBestilling.Kunder.balance;
+                enBestilling.Kunder.balance = (pris * enBestilling.antall) + saldo;
+
+                _db.Bestillinger.Remove(enBestilling);
+                await _db.SaveChangesAsync();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public async Task<bool> SlettKunde(Kunder kundeInn)
+        {
+            try
+            {
+                Kunder enKunde = await _db.Kunder.FindAsync(kundeInn.kId);
+                Console.WriteLine(kundeInn.kId);
+                List<Bestillinger> alleBestillinger = await _db.Bestillinger.ToListAsync();
+
+                foreach(Bestillinger bestilling in alleBestillinger)
+                {
+                    if (bestilling.Kunder.kId == kundeInn.kId)
+                    {
+                        _db.Bestillinger.Remove(bestilling);
+                    }
+                }
+                _db.Kunder.Remove(enKunde);
+                await _db.SaveChangesAsync();
+                return true;
+            }
+            catch
+            {
+                return false;
             }
         }
     }

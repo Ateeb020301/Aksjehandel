@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">  
+</head>
+<body>
+    <div class="main-container">
+        <div class="container-nav">
+            <div class="nav-title">
+                <div class="nav-logo">
+                    <img src="images/logo.png" height="75px" width="75px">
+                </div>
+            </div>
+            <div class="nav">
+                <div class="nav-item">
+                    <div class="icon">
+                        <i href="index.html" class="fa fa-home" aria-hidden="true"></i>
+                    </div>
+                    <div class="txt">
+                        <a href="index.html">Dashboard</a>
+                    </div>
+                </div>
+
+                <div class="nav-item">
+                    <div class="icon">
+                        <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+                    </div>
+                    <div class="txt">
+                        <a href="kunder.html">Se Kunder</a>
+                    </div>
+                </div>
+                <div class="nav-item">
+                    <div class="icon">
+                        <i class="fa fa-credit-card" aria-hidden="true"></i>
+                    </div>
+                    <div class="txt">
+                        <a href="bestillinger.html">Mine Bestillinger</a>
+                    </div>
+                </div>
+                <div class="nav-item">
+                    <div class="icon">
+                        <i class="fa fa-times" aria-hidden="true"></i>
+                    </div>
+                    <div class="txt">
+                        <a href="#" class="active">Admin Panel</a>
+                    </div>
+                </div>
+            </div>
+            <div class="nav-footer">
+                <a href="registrerKunde.html">Registrer Kunde</a>
+            </div>
+        </div>
+
+        <div class="container-body">
+            <div class="body-header">
+                <div class="body-person">
+                    <div class="body-person">
+                        <div class="info">
+                            <select id="name">
+                                <option selected disabled value="">Velg Kunde</option>
+                            </select>
+                    
+                            <p id="role">
+                                
+                            </p>
+                            <p id="profil">
+                                
+                            </p>
+                        </div>
+                        <div class="image">
+                            <img src="images/pp.png" height="50px" width="50px;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="body-cont">
+                <div class="body-dashboard">
+                    <div class="dashbord-txt">
+                        <h2>Admin Panel</h2>
+                    </div>
+                    <div class="accountBalance">
+                        <h4>Account Balance: $<span class="balance">0</span></h4>
+                    </div>
+                </div>
+                
+                <div class="tableWrapper">
+                    <div class="bestillingTabell">
+                        <table class="tableBest">
+                            <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Symbol</th>
+                                <th>Aksje</th>
+                                <th>Pris Per Aksje</th>
+                                <th>Eier (Antall)</th>
+                                <th>Total Pris</th>
+                            </tr>
+                            </thead>
+                            <tbody class="bestTabell">
+
+                            <tbody>
+                        </table>
+                    </div>
+                    <div class="kunderTabell">
+                        <table class="tableKunder">
+                            <thead>
+                            <tr>
+                                <th>Navn</th>
+                                <th>Telefon</th>
+                                <th>Rolle</th>
+                                <th>Saldo</th>
+                            </tr>
+                            </thead>
+                            <tbody class="kundeTabell">
+    
+                            <tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/admin.js"></script>
+</body>
+</html>

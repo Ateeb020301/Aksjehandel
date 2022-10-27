@@ -721,17 +721,17 @@ body {
 
 .kunderTabell  {
     display: flex;
+    flex: 1;
     flex-direction: row;
-    margin: 25px;
     min-height: 70vh;
     border-radius: 10px;
     background-color: white;
     justify-content: center;
     align-items: center;
+    margin: 0 12.5px 0 0;
 }
 
 .tableKunder {
-    width: 80%;
     border-radius: 5px;
     font-size: 13px;
     font-weight: normal;
@@ -740,18 +740,20 @@ body {
     max-width: 100%;
     white-space: nowrap;
     background-color: white;
+    margin: 25px;
 }
 
 .tableKunder td, .tableKunder th {
-    text-align: left;
+    text-align: center;
     padding: 15px;
+    border-style: solid;
 }
 
 .tableKunder td {
-    border-right: solid;
-    border-bottom-style: solid;
+    border-style: solid;
     border-width: 1px;
     border-color: #f8f8f8;
+    font-size: 12px;
 }
 
 .tableKunder tr:nth-child(even) {
@@ -760,8 +762,7 @@ body {
 
 .tableKunder tr:nth-child(even) td, .tableKunder tr:nth-child(odd) th {
     background: #F8F8F8;
-    border-right: solid;
-    border-bottom-style: solid;
+    border-style: solid;
     border-width: 1px;
     border-color: white;
     
@@ -769,17 +770,17 @@ body {
 
 .bestillingTabell  {
     display: flex;
+    flex: 1;
     flex-direction: row;
-    margin: 25px;
     min-height: 70vh;
     border-radius: 10px;
     background-color: white;
     justify-content: center;
     align-items: center;
+    margin: 0 12.5px 0 0;
 }
 
 .tableBest {
-    width: 80%;
     border-radius: 5px;
     font-size: 13px;
     font-weight: normal;
@@ -788,6 +789,7 @@ body {
     max-width: 100%;
     white-space: nowrap;
     background-color: white;
+    margin: 25px;
 }
 
 .tableBest td, .tableBest th {
@@ -835,9 +837,46 @@ body {
     transition: .5s;
 }
 
+.tableWrapper {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 25px;
+    min-height: auto;
+}
 
 
+@media only screen and (max-width: 1160px) {
+    .status-coin h3 {
+        font-size: 12px;
+    }
 
+    .nav {
+        display: flex;
+        align-items: center;
+    }
+
+    .nav .nav-item {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: 35px 0 0 0px ;
+        font-size: 12px;
+        transition: 0.2s;
+    }
+    
+    .nav-item:hover {
+        color: var(--primary);
+        cursor: pointer;
+        transition: 0.2s;
+    }
+
+    .icon {
+        display: flex;
+        justify-content: center;
+        padding-left: 15px;
+        margin: 5px;
+    }
+}
 
 @media screen and (max-width: 750px) {
     .body-coins {

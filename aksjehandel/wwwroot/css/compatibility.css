@@ -38,6 +38,11 @@
     .status-coin h3 {
         font-size: 12px;
     }
+
+    .nav-item {
+        display: flex;
+        flex-direction: column;;
+    }
 }
 
 @media screen and (max-width: 810px) {

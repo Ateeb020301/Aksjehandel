@@ -39,9 +39,7 @@ function hentBestillinger() {
         bestRad.innerHTML = '';
         if (data.length > 0) {
             for (i = 0; i < data.length; i++) {
-                console.log(data[i]);
                 if (data[i].kunder.kId == parseInt(localStorage.getItem('kId'))) {
-                    console.log("yes")
                     bestRad.innerHTML += 
                     `
                     <tr>
