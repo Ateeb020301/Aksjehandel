@@ -20,7 +20,7 @@ function LagreData(aksjer) {
         if (data.length > 0 && data.length == aksjeView) {
             formaterData(data);
         } else { 
-            let temp = 0;
+            let temp = 1;
             let sendAksje = [];
             for (i = 0; i < aksjeView; i++) {
                 let boolLogo = true;
@@ -76,9 +76,16 @@ function LagreData(aksjer) {
 
 
 function formaterData(aksjer) {
+    console.log(aksjer);
     let bodyCoins = document.getElementsByClassName("body-coins")[0];
     bodyCoins.innerHTML = "";
+    let temp;
     for (i = 0; i < aksjer.length; i++) {
+        if (i == 0) {
+            temp = i;
+            i = 1;
+            i = temp;
+        }
         bodyCoins.innerHTML += `
         <div class="coin-container">
             <div class="coin-info">
