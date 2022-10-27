@@ -1,8 +1,8 @@
+let info = document.getElementsByClassName("info")[0];
 let balance = document.getElementsByClassName("balance")[0];
 let select = document.getElementById("name");
 let rolle = document.getElementById("role");
 let profil = document.getElementById("profil");
-let bestRad = document.getElementsByClassName("bestTabell")[0];
 
 window.onload = function() {
     const url = "Aksje/HentKunder";
@@ -18,8 +18,8 @@ window.onload = function() {
             if (localStorage.length > 0) {
                 profil.style.display="block";
                 select.selectedIndex = localStorage.getItem('selectedIndex');
-                rolle.innerHTML = kundeArr[localStorage.getItem('selectedIndex')-1].rolle;
-                balance.innerHTML = kundeArr[localStorage.getItem('selectedIndex')-1].balance.toLocaleString();
+                rolle.innerHTML = kundeArr[select.selectedIndex-1].rolle;
+                balance.innerHTML = kundeArr[select.selectedIndex-1].balance.toLocaleString();
                 profil.innerHTML = 
                 `
                 <a href="endre.html?id=${localStorage.getItem('kId')}">Profile</a>
@@ -28,10 +28,32 @@ window.onload = function() {
             select.selectedIndex = localStorage.getItem('selectedIndex');
         } else {
             profil.style.display = "none";
+                select.selectedIndex = 0;
         }
     });
+}
+
+
+select.onchange = function change() {
+    profil.style.display = "block";
+    for (i = 0; i < kundeArr.length; i++) {
+        if (select[select.selectedIndex].value == kundeArr[i].kId) {
+            rolle.innerHTML = kundeArr[i].rolle;
+            balance.innerHTML = kundeArr[i].balance.toLocaleString();
+            localStorage.setItem('kId', `${kundeArr[i].kId}`);
+            localStorage.setItem('navn', `${kundeArr[i].kNavn}`);
+            localStorage.setItem('rolle', `${kundeArr[i].rolle}`);
+            localStorage.setItem('balance', `${kundeArr[i].balance}`);
+            localStorage.setItem('selectedIndex', `${select.selectedIndex}`);
+            profil.innerHTML = 
+            `
+            <a href="endre.html?id=${kundeArr[i].kId}">Profile</a>
+            `
+        }
+    }
     hentBestillinger();
 }
+
 
 function hentBestillinger() {
     const url = "Aksje/HentBestillinger";
@@ -40,12 +62,12 @@ function hentBestillinger() {
         if (data.length > 0) {
             for (i = 0; i < data.length; i++) {
                 console.log(data[i]);
-                if (data[i].kunder.kId == parseInt(localStorage.getItem('kId'))) {
+                if (data[i].kunder.kId == localStorage.getItem('kId')) {
                     console.log("yes")
                     bestRad.innerHTML += 
                     `
                     <tr>
-                        <td><img width="30%" src="${data[i].aksjer.image}"></td>
+                        <td><img src="${data[i].aksjer.image}"></td>
                         <td>${data[i].bId}</td>
                         <td>${data[i].aksjer.symbol}</td>
                         <td>${data[i].aksjer.aksjenavn}</td>
@@ -56,28 +78,9 @@ function hentBestillinger() {
                     </tr>
                     `;
                 }
+                
+            
             }
         } 
     });
-}
-
-select.onchange = function test() {
-    profil.style.display = "block";
-    for (i = 0; i < kundeArr.length; i++) {
-        if (select[select.selectedIndex].value == kundeArr[i].kId) {
-            rolle.innerHTML = kundeArr[i].rolle;
-            balance.innerHTML = kundeArr[i].balance.toLocaleString();
-            localStorage.setItem('kId', `${kundeArr[i].kId}`)
-            localStorage.setItem('navn', `${kundeArr[i].kNavn}`)
-            localStorage.setItem('rolle', `${kundeArr[i].rolle}`)
-            localStorage.setItem('balance', `${kundeArr[i].balance}`)
-            localStorage.setItem('selectedIndex', `${select.selectedIndex}`)
-            profil.innerHTML = 
-            `
-            <a href="endre.html?id=${kundeArr[i].kId}">Profile</a>
-            `
-        }
-    }
-    hentBestillinger();
-    
 }

@@ -5,43 +5,14 @@ const options = {
 		'X-RapidAPI-Host': 'twelve-data1.p.rapidapi.com'
 	}
 };
+
 let dbAksje;
 let funnetAksje;
+let formPurchase;
+
 const id = window.location.search.substring(1);
-let info = document.getElementsByClassName("info")[0];
-let balance = document.getElementsByClassName("balance")[0];
-let select = document.getElementById("name");
-let rolle = document.getElementById("role");
-let profil = document.getElementById("profil");
-
-window.onload = function() {
-    const url1 = "Aksje/HentKunder";
-    $.get(url1, function(data) {
-        if (data.length > 0) {
-            for (i = 0; i < data.length; i++) {
-                select.innerHTML +=
-                `
-                <option value="${data[i].kId}">${data[i].kNavn}</option>
-                `;
-            }
-            kundeArr = data;
-            if (localStorage.length > 0) {
-                profil.style.display="block";
-                select.selectedIndex = localStorage.getItem('selectedIndex');
-                rolle.innerHTML = kundeArr[localStorage.getItem('selectedIndex')-1].rolle;
-                balance.innerHTML = kundeArr[localStorage.getItem('selectedIndex')-1].balance.toLocaleString();
-                profil.innerHTML = 
-                `
-                <a href="endre.html?id=${localStorage.getItem('kId')}">Profile</a>
-                `
-            }
-            select.selectedIndex = localStorage.getItem('selectedIndex');
-        } else {
-            profil.style.display = "none";
-        }
-    });
-    
-
+window.onload = run();
+function run()  {
     const url = "Aksje/HentAksje?" + id;
     $.get(url, function(aksje) {
       dbAksje = aksje;
@@ -50,29 +21,6 @@ window.onload = function() {
       .then(response => createHTML(response));
     });
 }
-
-
-
-select.onchange = function test() {
-    profil.style.display = "block";
-    for (i = 0; i < kundeArr.length; i++) {
-        if (select[select.selectedIndex].value == kundeArr[i].kId) {
-            rolle.innerHTML = kundeArr[i].rolle;
-            balance.innerHTML = kundeArr[i].balance.toLocaleString();
-            localStorage.setItem('kId', `${kundeArr[i].kId}`)
-            localStorage.setItem('navn', `${kundeArr[i].kNavn}`)
-            localStorage.setItem('rolle', `${kundeArr[i].rolle}`)
-            localStorage.setItem('balance', `${kundeArr[i].balance}`)
-            localStorage.setItem('selectedIndex', `${select.selectedIndex}`)
-            profil.innerHTML = 
-            `
-            <a href="endre.html?id=${kundeArr[i].kId}">Profile</a>
-            `
-        }
-    }
-    
-}
-
 
 async function createHTML(aksjer) {
     const timeSeries = await fetch(`https://twelve-data1.p.rapidapi.com/time_series?symbol=${aksjer.symbol}&interval=1day&outputsize=30&format=json`, options)
@@ -94,8 +42,6 @@ async function createHTML(aksjer) {
         updownHigh = 'down';
     }
     
-
-
     let bodyCoins = document.getElementsByClassName("body-coins")[0];
     bodyCoins.innerHTML = 
     `
@@ -169,17 +115,7 @@ async function createHTML(aksjer) {
                 </div>
             </div>
             <div class="cont-purchase">
-                <form action="" id="formPurchase">
-                    <div>
-                        <label for="name">Amount</label>
-                    </div>
-                    <div>
-                        <input type="number" name="amount" class="inpAmount" placeholder="0" required>
-                    </div>
-                    <div>
-                        <input type="submit" class="purchaseBtn" value="Purchase">
-                    </div>
-                </form>
+                
             </div>
         </div>
         <div class="chart">
@@ -189,8 +125,64 @@ async function createHTML(aksjer) {
         </div>
       </div>
     `;
+
+    let contPurchase = document.getElementsByClassName("cont-purchase")[0];
+    if (localStorage.length > 0) {
+        contPurchase.innerHTML = 
+        `
+        <form action="" id="formPurchase">
+            <div>
+                <label for="name">Amount</label>
+            </div>
+            <div>
+                <input type="number" name="amount" class="inpAmount" placeholder="Maximum 1500 at a time" min=0 max=1500 required>
+            </div>
+            <div>
+                <input type="submit" class="purchaseBtn" value="Purchase">
+            </div>
+        </form>
+        `;
+    formPurchase = document.getElementsByClassName("purchaseBtn")[0];
+    let antall = document.getElementsByClassName("inpAmount")[0];
+    antall.addEventListener('input', function() {
+        if (antall.value > 1500) {
+            antall.value = 1500;
+        }
+    });
+    formPurchase.addEventListener("click", function(event) {
+        event.preventDefault();
+        const url = "Aksje/LagreBestilling"
+        $.get("Aksje/HentKunder", function(data) {
+            for (i = 0; i < data.length; i++) {
+                if (data[i].kId == parseInt(localStorage.getItem('kId'))) {
+                    console.log(data[i])
+                    let bestilling = {
+                        antall: antall.value,
+                        kunder: data[i],
+                        aksjer: dbAksje
+                    }
+                    $.post(url, bestilling, function(verify) {
+                        if (verify) {
+                            window.location.href="index.html";
+                        } else {
+                            alert(
+                                `
+                                Du har ikke nok beløp i kontoen
+                                Beløp: $ ${bestilling.kunder.balance.toLocaleString(undefined, {maximumFractionDigits: 2})}
+                                Pris: $ ${(dbAksje.pris*antall.value).toLocaleString(undefined, {maximumFractionDigits: 2})}
+                                `
+                                );
+                        }
+                    });
+                }   
+            }
+        });
+      });
+    };
     createChart(getTimeseries);
 }
+
+
 
 function calcPrice() {
     let inpCrypto = document.getElementsByClassName("inpCrypto")[0];
@@ -198,6 +190,8 @@ function calcPrice() {
     let pris = dbAksje.pris * inpCrypto.value;
     Crypto.value = pris.toLocaleString(undefined, {maximumFractionDigits: 2});
 }
+
+
 
 function createChart(chart) {
     let xValues = [];

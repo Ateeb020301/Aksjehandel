@@ -48,6 +48,43 @@ namespace aksjehandel.Controllers
             }
         }
 
+        public async Task<List<Aksjer>> HentAlle()
+        {
+            List<Aksjer> alleAksjer = await _db.Aksjer.ToListAsync();
+            return alleAksjer;
+        }
+
+        public async Task<Aksjer> HentAksje(int id)
+        {
+            try
+            {
+                Aksjer enAksje = await _db.Aksjer.FindAsync(id);
+                return enAksje;
+            } catch
+            {
+                return null;
+            }
+        }
+
+        public async Task<List<Kunder>> HentKunder()
+        {
+            List<Kunder> alleKunder = await _db.Kunder.ToListAsync();
+            return alleKunder;
+        }
+
+        public async Task<Kunder> HentKunde(int id)
+        {
+            try
+            {
+                Kunder enKunde = await _db.Kunder.FindAsync(id);
+                return enKunde;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
         public async Task<bool> LagreKunde(Kunder kundeInn)
         {
             try
@@ -69,57 +106,6 @@ namespace aksjehandel.Controllers
             }
         }
 
-        public async Task<bool> LagreBestilling(Bestillinger bestillingInn)
-        {
-            try
-            {
-                _db.Bestillinger.Add(bestillingInn);
-                await _db.SaveChangesAsync();
-                return true;
-            }
-            catch
-            {
-                return false;
-            }
-        }
-
-        public async Task<List<Aksjer>> HentAlle()
-        {
-            List<Aksjer> alleAksjer = await _db.Aksjer.ToListAsync();
-            return alleAksjer;
-        }
-
-        public async Task<List<Kunder>> HentKunder()
-        {
-            List<Kunder> alleKunder = await _db.Kunder.ToListAsync();
-            return alleKunder;
-        }
-
-        public async Task<Aksjer> HentAksje(int id)
-        {
-            try
-            {
-                Aksjer enAksje = await _db.Aksjer.FindAsync(id);
-                return enAksje;
-            } catch
-            {
-                return null;
-            }
-        }
-
-        public async Task<Kunder> HentKunde(int id)
-        {
-            try
-            {
-                Kunder enKunde = await _db.Kunder.FindAsync(id);
-                return enKunde;
-            }
-            catch
-            {
-                return null;
-            }
-        }
-
         public async Task<Kunder> EndreKunde(Kunder kundeInn)
         {
             try
@@ -135,6 +121,74 @@ namespace aksjehandel.Controllers
             catch
             {
                 return null;
+            }
+        }
+
+        public async Task<Bestillinger> HentBestilling(int id)
+        {
+            try
+            {
+                Bestillinger enBestilling = await _db.Bestillinger.FindAsync(id);
+                return enBestilling;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        public async Task<List<Bestillinger>> HentBestillinger()
+        {
+            List<Bestillinger> alleBestillinger = await _db.Bestillinger.ToListAsync();
+            return alleBestillinger;
+        }
+
+        public async Task<bool> LagreBestilling(Bestillinger bestillingInn)
+        {
+            try
+            {
+                var nybestilling = new Bestillinger();
+                nybestilling.antall = bestillingInn.antall;
+                nybestilling.Kunder = await _db.Kunder.FindAsync(bestillingInn.Kunder.kId);
+                nybestilling.Aksjer = await _db.Aksjer.FindAsync(bestillingInn.Aksjer.Id);
+
+                var prisAksje = nybestilling.Aksjer.Pris;
+                var saldo = nybestilling.Kunder.balance;
+                var nySaldo = saldo - (prisAksje * nybestilling.antall);
+
+                if (nySaldo < 0)
+                {
+                    return false;
+                }
+                else
+                {
+                    nybestilling.Kunder.balance = nySaldo;
+                    List<Bestillinger> alleBestillinger = await _db.Bestillinger.Where(k => k.Kunder.kId == bestillingInn.Kunder.kId).ToListAsync();
+                    List<Bestillinger> alleAksjer = await _db.Bestillinger.Where(a => a.Aksjer.Id == bestillingInn.Aksjer.Id).ToListAsync();
+                    if (alleBestillinger.Count > 0 && alleAksjer.Count > 0)
+                    {
+                        foreach (Bestillinger bestilling in alleBestillinger)
+                        {
+                            if (bestilling.Kunder.kId == bestillingInn.Kunder.kId && bestilling.Aksjer.Id == bestillingInn.Aksjer.Id)
+                            {
+                                var bId = bestilling.bId;
+                                var antall = bestilling.antall;
+                                Bestillinger enBestilling = await _db.Bestillinger.FindAsync(bId);
+                                enBestilling.antall = bestillingInn.antall + antall;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        _db.Bestillinger.Add(nybestilling);
+                    }
+                }
+                await _db.SaveChangesAsync();
+                return true;
+            }
+            catch
+            {
+                return false;
             }
         }
     }
