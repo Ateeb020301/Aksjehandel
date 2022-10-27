@@ -224,7 +224,6 @@ namespace aksjehandel.Controllers
             {
 
                 Bestillinger enBestilling = await _db.Bestillinger.FindAsync(bestillingInn.bId);
-                Console.WriteLine(bestillingInn.bId);
                 var pris = enBestilling.Aksjer.Pris;
                 var saldo = enBestilling.Kunder.balance;
                 enBestilling.Kunder.balance = (pris * enBestilling.antall) + saldo;
@@ -244,7 +243,6 @@ namespace aksjehandel.Controllers
             try
             {
                 Kunder enKunde = await _db.Kunder.FindAsync(kundeInn.kId);
-                Console.WriteLine(kundeInn.kId);
                 List<Bestillinger> alleBestillinger = await _db.Bestillinger.ToListAsync();
 
                 foreach(Bestillinger bestilling in alleBestillinger)
