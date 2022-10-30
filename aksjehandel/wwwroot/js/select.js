@@ -3,8 +3,12 @@ let balance = document.getElementsByClassName("balance")[0];
 let select = document.getElementById("name");
 let rolle = document.getElementById("role");
 let profil = document.getElementById("profil");
+let admin = document.getElementById("admins");
 
 window.onload = function() {
+    if (localStorage.getItem('rolle') != "Admin") {
+        admin.style.display="none";
+    }
     const url = "Aksje/HentKunder";
     $.get(url, function(data) {
         if (data.length > 0) {
@@ -51,36 +55,11 @@ select.onchange = function change() {
             `
         }
     }
-    hentBestillinger();
+    if (localStorage.getItem('rolle') == "Admin") {
+        admin.style.display="";
+    } else {
+        admin.style.display="none";
+    }
 }
 
 
-function hentBestillinger() {
-    const url = "Aksje/HentBestillinger";
-    $.get(url, function(data) {
-        bestRad.innerHTML = '';
-        if (data.length > 0) {
-            for (i = 0; i < data.length; i++) {
-                console.log(data[i]);
-                if (data[i].kunder.kId == localStorage.getItem('kId')) {
-                    console.log("yes")
-                    bestRad.innerHTML += 
-                    `
-                    <tr>
-                        <td><img src="${data[i].aksjer.image}"></td>
-                        <td>${data[i].bId}</td>
-                        <td>${data[i].aksjer.symbol}</td>
-                        <td>${data[i].aksjer.aksjenavn}</td>
-                        <td>$${data[i].aksjer.pris}</td>
-                        <td>${data[i].antall}</td>
-                        <td>$${(data[i].aksjer.pris)*data[i].antall}</td>
-                        <td><button id="selg" >Selg</button></td>
-                    </tr>
-                    `;
-                }
-                
-            
-            }
-        } 
-    });
-}

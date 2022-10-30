@@ -1,5 +1,5 @@
 let kundeRad = document.getElementsByClassName("kundeTabell")[0];
-
+let admin = document.getElementById("admins");
 let info = document.getElementsByClassName("info")[0];
 let balance = document.getElementsByClassName("balance")[0];
 let select = document.getElementById("name");
@@ -7,6 +7,11 @@ let rolle = document.getElementById("role");
 let profil = document.getElementById("profil");
 
 window.onload = function() {
+    if (localStorage.getItem('rolle') == "Admin") {
+        admin.style.display="";
+    } else {
+        admin.style.display="none";
+    }
     const url = "Aksje/HentKunder";
     $.get(url, function(data) {
         if (data.length > 0) {
@@ -54,6 +59,11 @@ select.onchange = function change() {
             <a href="endre.html?id=${kundeArr[i].kId}">Profile</a>
             `
         }
+    }
+    if (localStorage.getItem('rolle') == "Admin") {
+        admin.style.display="";
+    } else {
+        admin.style.display="none";
     }
     kunder();
 }

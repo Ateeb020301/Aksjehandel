@@ -2,7 +2,6 @@ let formEndre = document.getElementById("formEndre");
 let inpId = document.getElementById("inpId");
 let inpNavn = document.getElementById("inpNavn");
 let inpTlf = document.getElementById("inpTlf");
-let select = document.getElementById("cash");
 let role = document.getElementsByName("rolle")
 let checkedVal;
 window.onload = function() {

@@ -780,6 +780,30 @@ body {
     margin: 0 12.5px 0 0;
 }
 
+.bestillingTabellen  {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    min-height: 70vh;
+    border-radius: 10px;
+    background-color: white;
+    justify-content: center;
+    align-items: center;
+    margin: 25px;
+}
+
+.kunderTabellen  {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    min-height: 70vh;
+    border-radius: 10px;
+    background-color: white;
+    justify-content: center;
+    align-items: center;
+    margin: 25px;
+}
+
 .tableBest {
     border-radius: 5px;
     font-size: 13px;

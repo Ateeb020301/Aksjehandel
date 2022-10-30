@@ -3,8 +3,14 @@ let select = document.getElementById("name");
 let rolle = document.getElementById("role");
 let profil = document.getElementById("profil");
 let bestRad = document.getElementsByClassName("bestTabell")[0];
+let admin = document.getElementById("admins");
 
 window.onload = function() {
+    if (localStorage.getItem('rolle') == "Admin") {
+        admin.style.display="";
+    } else {
+        admin.style.display="none";
+    }
     const url = "Aksje/HentKunder";
     $.get(url, function(data) {
         if (data.length > 0) {
@@ -80,6 +86,10 @@ select.onchange = function test() {
             `
         }
     }
+    if (localStorage.getItem('rolle') == "Admin") {
+        admin.style.display="";
+    } else {
+        admin.style.display="none";
+    }
     hentBestillinger();
-    
 }
