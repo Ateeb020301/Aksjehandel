@@ -30,6 +30,8 @@ body {
 
 .nav-logo {
     height: 10vh;
+    display: flex;
+    align-items: center;
 
 }
 
