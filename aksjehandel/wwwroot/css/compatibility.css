@@ -10,7 +10,14 @@
     }
 
     .chart {
-        margin: 10px 0 0 0;
+        margin: 0px 10px 10px 0;
+        order: 1;
+        display: flex;
+    }
+
+    .db-info {
+        margin: 0px 10px 10px 0;
+        order: 2;
     }
     .status-info .status-coin:nth-child(even) {
         margin: 0 10px 10px 10px;

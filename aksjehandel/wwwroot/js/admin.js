@@ -88,7 +88,7 @@ function slettKunde(id) {
     } else {
         $.post(url, kunde, function(verify) {
             if (verify) {
-                window.location.href="admin.php";
+                window.location.href="admin.html";
             } else {
                 console.log("Feil i DB - Prøv igjen");
             }

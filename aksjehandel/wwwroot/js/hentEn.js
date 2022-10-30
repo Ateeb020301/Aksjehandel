@@ -127,7 +127,7 @@ async function createHTML(aksjer) {
     `;
 
     let contPurchase = document.getElementsByClassName("cont-purchase")[0];
-    if (localStorage.length > 0) {
+    if (localStorage.getItem('kId') != null) {
         contPurchase.innerHTML = 
         `
         <form action="" id="formPurchase">
