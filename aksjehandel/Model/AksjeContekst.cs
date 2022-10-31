@@ -44,7 +44,7 @@ namespace aksjehandel.Model
         {
             Database.EnsureCreated();
         }
-        public DbSet<Aksjer> Aksjere { get; set; }
+        public DbSet<Aksjer> Aksjer { get; set; }
         public DbSet<Kunder> Kunder { get; set; }
         public DbSet<Bestillinger> Bestillinger { get; set; }
 
