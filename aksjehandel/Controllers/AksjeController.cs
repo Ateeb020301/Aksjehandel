@@ -23,6 +23,8 @@ namespace aksjehandel.Controllers
             _db = db;
         }
 
+
+        //Kode for Aksjer
         public async Task<bool> Lagre(Aksjer aksjeInn) {
             try {
                 if (await _db.Aksjer.FindAsync(aksjeInn.Id) != null)
@@ -66,6 +68,7 @@ namespace aksjehandel.Controllers
             }
         }
 
+        //Kode for kunder
         public async Task<List<Kunder>> HentKunder()
         {
             List<Kunder> alleKunder = await _db.Kunder.ToListAsync();
@@ -124,6 +127,31 @@ namespace aksjehandel.Controllers
             }
         }
 
+        public async Task<bool> SlettKunde(Kunder kundeInn)
+        {
+            try
+            {
+                Kunder enKunde = await _db.Kunder.FindAsync(kundeInn.kId);
+                List<Bestillinger> alleBestillinger = await _db.Bestillinger.ToListAsync();
+
+                foreach (Bestillinger bestilling in alleBestillinger)
+                {
+                    if (bestilling.Kunder.kId == kundeInn.kId)
+                    {
+                        _db.Bestillinger.Remove(bestilling);
+                    }
+                }
+                _db.Kunder.Remove(enKunde);
+                await _db.SaveChangesAsync();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        //Kode for Bestillinger
         public async Task<Bestillinger> HentBestilling(int id)
         {
             try
@@ -229,30 +257,6 @@ namespace aksjehandel.Controllers
                 enBestilling.Kunder.balance = (pris * enBestilling.antall) + saldo;
 
                 _db.Bestillinger.Remove(enBestilling);
-                await _db.SaveChangesAsync();
-                return true;
-            }
-            catch
-            {
-                return false;
-            }
-        }
-
-        public async Task<bool> SlettKunde(Kunder kundeInn)
-        {
-            try
-            {
-                Kunder enKunde = await _db.Kunder.FindAsync(kundeInn.kId);
-                List<Bestillinger> alleBestillinger = await _db.Bestillinger.ToListAsync();
-
-                foreach(Bestillinger bestilling in alleBestillinger)
-                {
-                    if (bestilling.Kunder.kId == kundeInn.kId)
-                    {
-                        _db.Bestillinger.Remove(bestilling);
-                    }
-                }
-                _db.Kunder.Remove(enKunde);
                 await _db.SaveChangesAsync();
                 return true;
             }
