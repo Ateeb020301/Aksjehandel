@@ -55,3 +55,4 @@ namespace aksjehandel.Model
 
     }
 }
+

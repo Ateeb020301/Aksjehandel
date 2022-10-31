@@ -19,6 +19,7 @@ namespace aksjehandel
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+
             services.AddControllers();
             services.AddDbContext<AksjeContext>(options =>
                             options.UseSqlite("Data Source=Aksje.db"));
@@ -29,6 +30,9 @@ namespace aksjehandel
         {
             if (env.IsDevelopment())
             {
+                using (var scope = app.ApplicationServices.CreateScope())
+                using (var context = scope.ServiceProvider.GetService<AksjeContext>())
+                    context.Database.Migrate();
                 app.UseDeveloperExceptionPage();
             }
 

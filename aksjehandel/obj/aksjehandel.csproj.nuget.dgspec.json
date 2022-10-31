@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Moham\\Documents\\GitHub\\aksjehandel\\aksjehandel\\aksjehandel.csproj": {}
+    "F:\\Web Applikasjoner\\aksjehandel\\aksjehandel\\aksjehandel.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Moham\\Documents\\GitHub\\aksjehandel\\aksjehandel\\aksjehandel.csproj": {
+    "F:\\Web Applikasjoner\\aksjehandel\\aksjehandel\\aksjehandel.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Moham\\Documents\\GitHub\\aksjehandel\\aksjehandel\\aksjehandel.csproj",
+        "projectUniqueName": "F:\\Web Applikasjoner\\aksjehandel\\aksjehandel\\aksjehandel.csproj",
         "projectName": "aksjehandel",
-        "projectPath": "C:\\Users\\Moham\\Documents\\GitHub\\aksjehandel\\aksjehandel\\aksjehandel.csproj",
+        "projectPath": "F:\\Web Applikasjoner\\aksjehandel\\aksjehandel\\aksjehandel.csproj",
         "packagesPath": "C:\\Users\\Moham\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Moham\\Documents\\GitHub\\aksjehandel\\aksjehandel\\obj\\",
+        "outputPath": "F:\\Web Applikasjoner\\aksjehandel\\aksjehandel\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Moham\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -67,8 +67,7 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -80,7 +79,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.411\\RuntimeIdentifierGraph.json"
         }
       }
     }

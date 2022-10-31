@@ -52,8 +52,16 @@ namespace aksjehandel.Controllers
 
         public async Task<List<Aksjer>> HentAlle()
         {
-            List<Aksjer> alleAksjer = await _db.Aksjer.ToListAsync();
-            return alleAksjer;
+            try
+            {
+                List<Aksjer> alleAksjer = await _db.Aksjer.ToListAsync();
+                return alleAksjer;
+            }
+            catch
+            {
+                return null;
+            }
+
         }
 
         public async Task<Aksjer> HentAksje(int id)

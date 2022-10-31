@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "7OTMvVEj7E5rq9mlfWpoyKs4Q4LQsVWioy0pfP7wrR9KTFgHLW0pBRpMBb1DP1MJ1JHy9iYr0Vgh6CD+0ad0+Q==",
+  "dgSpecHash": "vui7r+Xm+fdrK9Qdqlm6Is11IZ4vyofqoffyOGRIJPTQ51keMeyJyGXA04ldqqfifOtD/9X3fQh3DMxpVmc0Bg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Moham\\Documents\\GitHub\\aksjehandel\\aksjehandel\\aksjehandel.csproj",
+  "projectFilePath": "F:\\Web Applikasjoner\\aksjehandel\\aksjehandel\\aksjehandel.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Moham\\.nuget\\packages\\castle.core\\4.4.0\\castle.core.4.4.0.nupkg.sha512",
     "C:\\Users\\Moham\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
